@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware('auth:api')->group(function () {
+    Route::get('/articles', 'ArticleController@index')->middleware('api.admin')->name('articles');
+    Route::get('/test', 'SuperAdmin\SuperController@test')->middleware('api.superAdmin')->name('test');
+
+});
