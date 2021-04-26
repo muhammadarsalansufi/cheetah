@@ -73,10 +73,11 @@ class ApiAuthController extends Controller
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function logout (Request $request) {
-        auth()->user()->token()->revoke();
-        return response()->json([
-            'message'=> 'Successfully logged out'
-        ]);
+        $token = $request->user();
+        return $request;
+        $token->revoke();
+        $response = ['message' => 'You have been successfully logged out!'];
+        return response($response, 200);
     }
 
 
