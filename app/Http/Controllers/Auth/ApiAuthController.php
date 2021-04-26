@@ -76,9 +76,13 @@ class ApiAuthController extends Controller
     public function logout (Request $request) {
         if (Auth::check()) {
             Auth::user()->AauthAcessToken()->delete();
+            $response = ['message' => 'You have been successfully logged out!'];
+            return response($response, 200);
         }
-        $response = ['message' => 'You have been successfully logged out!'];
-        return response($response, 200);
+        else
+        {
+            return $request->token;
+        }
     }
 
 
