@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -74,15 +73,10 @@ class ApiAuthController extends Controller
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function logout (Request $request) {
-        if (Auth::check()) {
-            Auth::user()->AauthAcessToken()->delete();
-            $response = ['message' => 'You have been successfully logged out!'];
-            return response($response, 200);
-        }
-        else
-        {
-            return $request->token;
-        }
+        $token = $request->user()->token();
+        $token->revoke();
+        $response = ['message' => 'You have been successfully logged out!'];
+        return response($response, 200);
     }
 
 
