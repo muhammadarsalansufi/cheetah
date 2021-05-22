@@ -3,7 +3,7 @@
         Options -MultiViews -Indexes
     </IfModule>
     <IfModule mod_headers.c>
-      Header set Access-Control-Allow-Origin "*"
+      Header set Access-Control-Allow-Origin "http://80.74.149.89"
     </IfModule>
 
     RewriteEngine On
