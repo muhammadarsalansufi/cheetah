@@ -50,7 +50,7 @@ class ApiAuthController extends Controller
         ]);
         if ($validator->fails())
         {
-            return response(['errors'=>$validator->errors()->all()], 422);
+            return response(['errors'=>$validator->errors()->all()], 200);
         }
         $user = User::where('email', $request->email)->first();
         if ($user) {
@@ -60,11 +60,11 @@ class ApiAuthController extends Controller
                 return response($response, 200);
             } else {
                 $response = ["message" => "Password mismatch"];
-                return response($response, 422);
+                return response($response, 200);
             }
         } else {
             $response = ["message" =>'User does not exist'];
-            return response($response, 422);
+            return response($response, 200);
         }
     }
 
