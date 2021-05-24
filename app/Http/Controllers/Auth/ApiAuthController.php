@@ -63,7 +63,7 @@ class ApiAuthController extends Controller
                 return response($response, 200);
             }
         } else {
-            $response = ["message" =>'User does not exist'];
+            $response = ["message" =>'User does not exist','user'=>$user];
             return response($response, 200);
         }
     }
@@ -78,7 +78,4 @@ class ApiAuthController extends Controller
         $response = ['message' => 'You have been successfully logged out!'];
         return response($response, 200);
     }
-
-
-
 }
