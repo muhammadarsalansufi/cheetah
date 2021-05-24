@@ -23,6 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/articles', 'ArticleController@index')->middleware('api.admin')->name('articles');
-    Route::post('/test', 'SuperAdmin\SuperController@test')->middleware('api.superAdmin')->name('test');
+    Route::get('/test', 'SuperAdmin\SuperController@test')->middleware('api.superAdmin')->name('test');
 
 });
