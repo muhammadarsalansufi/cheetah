@@ -20,7 +20,7 @@ class SuperAdminAuth
             return $next($request);;
         } else {
             $message = ["message" => "Permission Denied"];
-            return response($message, 401);
+            return response($message, 200);
         }
     }
 }
