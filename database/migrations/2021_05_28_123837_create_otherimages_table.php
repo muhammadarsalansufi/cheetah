@@ -15,6 +15,10 @@ class CreateOtherimagesTable extends Migration
     {
         Schema::create('otherimages', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('contents')->nullable();
+            $table->string('pagename')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

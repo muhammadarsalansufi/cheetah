@@ -28,7 +28,11 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/articles', 'ArticleController@index')->middleware('api.admin')->name('articles');
-    Route::post('/test', 'SuperAdmin\SuperController@test')->middleware('api.superAdmin')->name('test');
+    Route::post('/addimageSlider', 'SuperAdmin\SuperController@addimageSlider')->middleware('api.superAdmin')->name('addimageSlider');
+    Route::post('/addContact', 'SuperAdmin\SuperController@addContact')->middleware('api.superAdmin')->name('addContact');
+    Route::post('/addSocialLinks', 'SuperAdmin\SuperController@addSocialLinks')->middleware('api.superAdmin')->name('addSocialLinks');
+    Route::post('/addContent', 'SuperAdmin\SuperController@addContent')->middleware('api.superAdmin')->name('addContent');
+    Route::post('/addOtherImages', 'SuperAdmin\SuperController@addOtherImages')->middleware('api.superAdmin')->name('test');
 
 });
 
