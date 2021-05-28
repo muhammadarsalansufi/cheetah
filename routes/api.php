@@ -33,6 +33,22 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/addSocialLinks', 'SuperAdmin\SuperController@addSocialLinks')->middleware('api.superAdmin')->name('addSocialLinks');
     Route::post('/addContent', 'SuperAdmin\SuperController@addContent')->middleware('api.superAdmin')->name('addContent');
     Route::post('/addOtherImages', 'SuperAdmin\SuperController@addOtherImages')->middleware('api.superAdmin')->name('test');
+    Route::post('/editimageSlider', 'SuperAdmin\SuperController@editimageSlider')->middleware('api.superAdmin')->name('editimageSlider');
+    Route::post('/editContact', 'SuperAdmin\SuperController@editContact')->middleware('api.superAdmin')->name('editContact');
+    Route::post('/editSocialLinks', 'SuperAdmin\SuperController@editSocialLinks')->middleware('api.superAdmin')->name('editSocialLinks');
+    Route::post('/editContent', 'SuperAdmin\SuperController@editContent')->middleware('api.superAdmin')->name('editContent');
+    Route::post('/editOtherImages', 'SuperAdmin\SuperController@editOtherImages')->middleware('api.superAdmin')->name('editOtherImages');
+    Route::post('/deleteimageSlider', 'SuperAdmin\SuperController@deleteimageSlider')->middleware('api.superAdmin')->name('deleteimageSlider');
+    Route::post('/deleteContact', 'SuperAdmin\SuperController@deleteContact')->middleware('api.superAdmin')->name('deleteContact');
+    Route::post('/deleteSocialLinks', 'SuperAdmin\SuperController@deleteSocialLinks')->middleware('api.superAdmin')->name('deleteSocialLinks');
+    Route::post('/deleteContent', 'SuperAdmin\SuperController@deleteContent')->middleware('api.superAdmin')->name('deleteContent');
+    Route::post('/deleteOtherImages', 'SuperAdmin\SuperController@deleteOtherImages')->middleware('api.superAdmin')->name('deleteOtherImages');
+    Route::get('/getimageSlider', 'SuperAdmin\SuperController@getimageSlider')->middleware('api.superAdmin')->name('getimageSlider');
+    Route::get('/getContact', 'SuperAdmin\SuperController@getContact')->middleware('api.superAdmin')->name('getContact');
+    Route::get('/getSocialLinks', 'SuperAdmin\SuperController@getSocialLinks')->middleware('api.superAdmin')->name('getSocialLinks');
+    Route::get('/getContent', 'SuperAdmin\SuperController@getContent')->middleware('api.superAdmin')->name('getContent');
+    Route::get('/getOtherImages', 'SuperAdmin\SuperController@getOtherImages')->middleware('api.superAdmin')->name('getOtherImages');
+
 
 });
 

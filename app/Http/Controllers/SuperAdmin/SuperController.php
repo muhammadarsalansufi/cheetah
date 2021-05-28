@@ -198,6 +198,75 @@ class SuperController extends Controller
             return response($response, 200);
         }
     }
+    public function deleteimageSlider(Request $request)
+    {
+        $id = $request->id;
+        $slider = DB::table('imageslider')->where('id', $id)->delete();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function deleteContact(Request $request)
+    {
+        $id = $request->id;
+        $slider = DB::table('contact')->where('id', $id)->delete();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function deleteSocialLinks(Request $request)
+    {
+        $id = $request->id;
+        $slider = DB::table('sociallinks')->where('id', $id)->delete();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function deleteContent(Request $request)
+    {
+        $id = $request->id;
+        $slider = DB::table('content')->where('id', $id)->delete();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+
+    public function deleteOtherImages(Request $request)
+    {
+        $id = $request->id;
+        $slider = DB::table('otherimages')->where('id', $id)->delete();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function getimageSlider(Request $request)
+    {
+
+        $slider = DB::table('imageslider')->get();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function getContact(Request $request)
+    {
+        $slider = DB::table('contact')->get();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function getSocialLinks(Request $request)
+    {
+        $slider = DB::table('sociallinks')->get();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function getContent(Request $request)
+    {
+        $slider = DB::table('content')->get();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+
+    public function getOtherImages(Request $request)
+    {
+        $slider = DB::table('otherimages')->get();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+
 
 
 }
