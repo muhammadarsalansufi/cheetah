@@ -52,4 +52,10 @@ Route::middleware('auth:api')->group(function () {
 
 });
 
+///web global routes
+Route::get('/getimageSliderWeb', 'WebContentController@getimageSliderWeb')->middleware('api.superAdmin')->name('getimageSliderWeb');
+Route::get('/getContactWeb', 'WebContentController@getContactWeb')->middleware('api.superAdmin')->name('getContactWeb');
+Route::get('/getSocialLinksWeb', 'SWebContentController@getSocialLinksWeb')->middleware('api.superAdmin')->name('getSocialLinksWeb');
+Route::get('/getContentWeb', 'WebContentController@getContentWeb')->middleware('api.superAdmin')->name('getContentWeb');
+Route::get('/getOtherImagesWeb', 'WebContentController@getOtherImagesWeb')->middleware('api.superAdmin')->name('getOtherImagesWeb');
 

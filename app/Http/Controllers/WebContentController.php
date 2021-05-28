@@ -16,26 +16,36 @@ use Illuminate\Http\Request;
 
 class WebContentController extends Controller
 {
-    public function getSliderImages()
+    public function getimageSliderWeb()
     {
-        $record = ImageSlider::all();
+        $record = ImageSlider::where('status','=','active')->get();
+        $response = ['message'=>'True','record'=>$record ];
+        return response($response, 200);
     }
-    public function getContact(Request $request)
+    public function getContactWeb(Request $request)
     {
-        $record = Contacts::all();
+        $record = Contacts::where('status','=','active')->get();
+        $response = ['message'=>'True','record'=>$record ];
+        return response($response, 200);
     }
-    public function getSocialLinks(Request $request)
+    public function getSocialLinksWeb(Request $request)
     {
-        $record = SocialLinks::all();
+        $record = SocialLinks::where('status','=','active')->get();
+        $response = ['message'=>'True','record'=>$record ];
+        return response($response, 200);;
     }
-    public function getContent(Request $request)
+    public function getContentWeb(Request $request)
     {
-        $record = Content::all();
+        $record = Content::where('status','=','active')->get();
+        $response = ['message'=>'True','record'=>$record ];
+        return response($response, 200);
     }
 
-    public function getOtherImages(Request $request)
+    public function getOtherImagesWeb(Request $request)
     {
-        $record = OtherImages::all();
+        $record = OtherImages::where('status','=','active')->get();
+        $response = ['message'=>'True','record'=>$record ];
+        return response($response, 200);
     }
 
 
