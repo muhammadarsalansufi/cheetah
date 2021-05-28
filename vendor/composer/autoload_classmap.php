@@ -19,6 +19,8 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
+    'App\\Http\\Controllers\\SuperAdmin\\SuperController' => $baseDir . '/app/Http/Controllers/SuperAdmin/SuperController.php',
+    'App\\Http\\Controllers\\WebContentController' => $baseDir . '/app/Http/Controllers/WebContentController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AdminAuth' => $baseDir . '/app/Http/Middleware/AdminAuth.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',

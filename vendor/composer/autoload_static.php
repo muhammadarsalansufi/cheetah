@@ -575,6 +575,8 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\SuperAdmin\\SuperController' => __DIR__ . '/../..' . '/app/Http/Controllers/SuperAdmin/SuperController.php',
+        'App\\Http\\Controllers\\WebContentController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebContentController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminAuth.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',

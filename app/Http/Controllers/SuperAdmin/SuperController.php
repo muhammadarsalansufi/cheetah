@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class SuperController extends Controller
 {
 
-    public function test(Request $request)
+    public function addimageSlider(Request $request)
     {
         $response = ["message" => "Testin passed"];
         return response($response, 200);
