@@ -12,7 +12,7 @@ class SuperController extends Controller
 
     public function test(Request $request)
     {
-        $response = ["message" => "Password mismatch"];
+        $response = ["message" => "Testin passed"];
         return response($response, 200);
     }
 
