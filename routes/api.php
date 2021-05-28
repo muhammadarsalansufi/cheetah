@@ -28,7 +28,7 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/articles', 'ArticleController@index')->middleware('api.admin')->name('articles');
-    Route::post('/test', 'SuperAdmin\SuperController@test')->middleware('api.superAdmin')->name('test');
+    Route::post('/test', 'SuperAdmin\SuperController@test')->middleware('api.admin')->name('test');
 
 });
 
