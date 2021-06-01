@@ -118,13 +118,20 @@ class SuperController extends Controller
     }
     public function editimageSlider(Request $request)
     {   $id =$request->id;
-        $image =$request->image;
         $title =$request->title;
         $description =$request->description;
         $status =$request->status;
+        if($file = $request->hasFile('image')) {
+            $file = $request->file('image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $fileName = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$fileName);
+            $newCategory= URL::asset('images').'/'.$fileName ;
+        }
         $slider = DB::table('imageslider')->where('id', $id)
             ->update([
-                'image' => $image,
+                'image' => $fileName,
                 'title' => $title,
                 'description' => $description,
                 'status' => $status
@@ -196,6 +203,8 @@ class SuperController extends Controller
         $title =$request->title;
         $contents =$request->contents;
         $status =$request->status;
+
+
         $slider = DB::table('content')->where('id', $id)
             ->update([
                 'title' => $title,
@@ -220,15 +229,25 @@ class SuperController extends Controller
         $title =$request->title;
         $contents =$request->contents;
         $pagename =$request->pagename;
-        $image =$request->image;
+
         $status =$request->status;
+        if($file = $request->hasFile('image')) {
+            $file = $request->file('image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $fileName = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$fileName);
+            $newCategory= URL::asset('images').'/'.$fileName ;
+        }
+
+
         $slider = DB::table('otherimages')->where('id', $id)
             ->update([
                 'title' => $title,
                 'contents' => $contents,
                 'pagename' => $pagename,
                 'status' => $status,
-                'image ' => $image
+                'image ' => $fileName
             ]);
         if($slider)
         {
