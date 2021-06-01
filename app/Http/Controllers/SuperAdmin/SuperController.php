@@ -12,6 +12,7 @@ use App\OtherImages;
 use App\SocialLinks;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 
 class SuperController extends Controller
@@ -20,12 +21,32 @@ class SuperController extends Controller
     public function addimageSlider(Request $request)
     {
        $slider = new ImageSlider();
-        $slider->image =$request->image;
+//        $slider->image =$request->image;
         $slider->title =$request->title;
         $slider->description =$request->description;
         $slider->status =$request->status;
         $slider->save();
-        $response = ['message'=>'True'];
+        $fileName = "notfound";
+        if($file = $request->hasFile('image')) {
+            $file = $request->file('image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $fileName = 'i'.$slider->id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$fileName);
+            $newCategory= URL::asset('images').'/'.$fileName ;
+        }
+        $data = DB::table('imageslider')
+            ->where('id', '=',$slider->id)
+            ->update(['image' => $fileName]);
+        if($data==1)
+        {
+            $response = ['message'=>'True'];
+        }
+        else
+        {
+            $response = ['message'=>'Record Saved Image Not Saved'];
+        }
+
         return response($response, 200);
     }
     public function addContact(Request $request)
