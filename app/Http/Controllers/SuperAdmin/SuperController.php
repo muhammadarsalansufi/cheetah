@@ -88,9 +88,31 @@ class SuperController extends Controller
         $slider->title =$request->title;
         $slider->contents =$request->contents;
         $slider->pagename =$request->pagename;
-        $slider->image =$request->image;
+//        $slider->image =$request->image;
         $slider->status =$request->status;
         $slider->save();
+        $fileName = "notfound";
+        if($file = $request->hasFile('image')) {
+            $file = $request->file('image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $fileName = 'i'.$slider->id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$fileName);
+            $newCategory= URL::asset('images').'/'.$fileName ;
+        }
+        $data = DB::table('otherimages')
+            ->where('id', '=',$slider->id)
+            ->update(['image' => $fileName]);
+        if($data==1)
+        {
+            $response = ['message'=>'True'];
+        }
+        else
+        {
+            $response = ['message'=>'Record Saved Image Not Saved'];
+        }
+
+        return response($response, 200);
         $response = ['message'=>'True'];
         return response($response, 200);
     }
