@@ -247,7 +247,8 @@ class SuperController extends Controller
                 'title' => $title,
                 'contents' => $contents,
                 'pagename' => $pagename,
-                'status' => $status
+                'status' => $status,
+                'image' => $fileName
             ]);
         if($slider)
         {
