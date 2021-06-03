@@ -55,7 +55,7 @@ Route::middleware('auth:api')->group(function () {
 ///web global routes
 Route::get('/getimageSliderWeb', 'WebContentController@getimageSliderWeb')->name('getimageSliderWeb');
 Route::get('/getContactWeb', 'WebContentController@getContactWeb')->name('getContactWeb');
-Route::get('/getSocialLinksWeb', 'SWebContentController@getSocialLinksWeb')->name('getSocialLinksWeb');
+Route::get('/getSocialLinksWeb', 'WebContentController@getSocialLinksWeb')->name('getSocialLinksWeb');
 Route::get('/getContentWeb', 'WebContentController@getContentWeb')->name('getContentWeb');
 Route::get('/getOtherImagesWeb', 'WebContentController@getOtherImagesWeb')->name('getOtherImagesWeb');
 
