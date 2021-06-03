@@ -14,7 +14,7 @@ class CreateOtherimagesTable extends Migration
     public function up()
     {
         Schema::create('otherimages', function (Blueprint $table) {
-            $table->id();
+            $table->id();;
             $table->string('title')->nullable();
             $table->string('image')->nullable();
             $table->string('contents')->nullable();
