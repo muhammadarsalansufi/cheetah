@@ -231,6 +231,7 @@ class SuperController extends Controller
         $pagename =$request->pagename;
 
         $status =$request->status;
+        $fileName = 'not defined';
         if($file = $request->hasFile('image')) {
             $file = $request->file('image') ;
             $fileName1 = $file->getClientOriginalName() ;
