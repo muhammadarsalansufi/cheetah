@@ -12,6 +12,7 @@ use App\Content;
 use App\ImageSlider;
 use App\OtherImages;
 use App\SocialLinks;
+use App\UserFeedback;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
@@ -61,6 +62,19 @@ class WebContentController extends Controller
         return response($response, 200);
 
     }
+    public function user_feedback(Request $request)
+    {
+        $user =  new UserFeedback();
+        $user->rating =$request->rating;
+        $user->feedback_type =$request->feedback_type;
+        $user->subject =$request->subject;
+        $user->status =$request->status;
+        $user->save();
+        $response = ['message'=>'True'];
+        return response($response, 200);
+
+    }
+
 
 
 }
