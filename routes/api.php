@@ -58,4 +58,5 @@ Route::get('/getContactWeb', 'WebContentController@getContactWeb')->name('getCon
 Route::get('/getSocialLinksWeb', 'WebContentController@getSocialLinksWeb')->name('getSocialLinksWeb');
 Route::get('/getContentWeb', 'WebContentController@getContentWeb')->name('getContentWeb');
 Route::get('/getOtherImagesWeb', 'WebContentController@getOtherImagesWeb')->name('getOtherImagesWeb');
+Route::post('/contactGlobal', 'WebContentController@contactGlobal')->name('contactGlobal');
 

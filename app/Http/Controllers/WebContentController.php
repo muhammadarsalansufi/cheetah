@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 
 
 use App\Contacts;
+use App\ContactUs;
 use App\Content;
 use App\ImageSlider;
 use App\OtherImages;
@@ -46,6 +47,19 @@ class WebContentController extends Controller
         $record = OtherImages::where('status','=','active')->get();
         $response = ['message'=>'True','record'=>$record ];
         return response($response, 200);
+    }
+    public function contactGlobal(Request $request)
+    {
+        $newcontact =  new ContactUs();
+        $newcontact->name = $request->name;
+        $newcontact->email = $request->email;
+        $newcontact->subject = $request->subject;
+        $newcontact->type = $request->type;
+        $newcontact->status = $request->status;
+        $newcontact->save();
+        $response = ['message'=>'True'];
+        return response($response, 200);
+
     }
 
 
