@@ -329,6 +329,18 @@ class SuperController extends Controller
         $response = ['message'=>'True','status'=>$slider];
         return response($response, 200);
     }
+    public function getContactResponses()
+    {
+        $slider = DB::table('contact_us')->get();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function getFeedbackResponses()
+    {
+        $slider = DB::table('user_feedback')->get();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
 
 
 

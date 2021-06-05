@@ -48,6 +48,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getSocialLinks', 'SuperAdmin\SuperController@getSocialLinks')->middleware('api.superAdmin')->name('getSocialLinks');
     Route::get('/getContent', 'SuperAdmin\SuperController@getContent')->middleware('api.superAdmin')->name('getContent');
     Route::get('/getOtherImages', 'SuperAdmin\SuperController@getOtherImages')->middleware('api.superAdmin')->name('getOtherImages');
+    Route::get('/getContactResponses', 'SuperAdmin\SuperController@getContactResponses')->middleware('api.superAdmin')->name('getContactResponses');
+    Route::get('/getFeedbackResponses', 'SuperAdmin\SuperController@getFeedbackResponses')->middleware('api.superAdmin')->name('getFeedbackResponses');
 
 
 });
