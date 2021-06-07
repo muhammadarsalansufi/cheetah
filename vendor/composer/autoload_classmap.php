@@ -55,6 +55,7 @@ return array(
     'App\\SocialLinks' => $baseDir . '/app/SocialLinks.php',
     'App\\SuperAdmin' => $baseDir . '/app/SuperAdmin.php',
     'App\\User' => $baseDir . '/app/User.php',
+    'App\\UserFeedback' => $baseDir . '/app/UserFeedback.php',
     'App\\WebContentSingle' => $baseDir . '/app/WebContentSingle.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
     'Asm89\\Stack\\CorsService' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',

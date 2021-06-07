@@ -611,6 +611,7 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
         'App\\SocialLinks' => __DIR__ . '/../..' . '/app/SocialLinks.php',
         'App\\SuperAdmin' => __DIR__ . '/../..' . '/app/SuperAdmin.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\UserFeedback' => __DIR__ . '/../..' . '/app/UserFeedback.php',
         'App\\WebContentSingle' => __DIR__ . '/../..' . '/app/WebContentSingle.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',

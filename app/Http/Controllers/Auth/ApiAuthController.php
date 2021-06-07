@@ -23,6 +23,7 @@ class ApiAuthController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'type' => 'integer',
+            'category' => 'required|string|max:255',
 
         ]);
         if ($validator->fails())
@@ -32,6 +33,14 @@ class ApiAuthController extends Controller
         $request['password']=Hash::make($request['password']);
         $request['remember_token'] = Str::random(10);
         $request['type'] = $request['type'] ? $request['type']  : 0;
+        if($request['category'] == 'catering')
+        {
+
+        }
+        if($request['category'] == 'restaurant')
+        {
+
+        }
         $user = User::create($request->toArray());
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $response = ['token' => $token];
@@ -75,7 +84,7 @@ class ApiAuthController extends Controller
     public function logout (Request $request) {
         $token = $request->user()->token();
         $token->revoke();
-        
+
         $response = ['message' => 'You have been successfully logged out!'];
         return response($response, 200);
     }
