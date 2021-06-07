@@ -23,8 +23,7 @@ class ApiAuthController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'type' => 'integer',
-            'category' => 'required|string|max:255',
+            'type' => 'integer'
 
         ]);
         if ($validator->fails())
@@ -50,7 +49,7 @@ class ApiAuthController extends Controller
         }
         $user = User::create($request->toArray());
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-        $response = ['token' => $token];
+        $response = ['token' => $request['category']];
         return response($response, 200);
     }
 
