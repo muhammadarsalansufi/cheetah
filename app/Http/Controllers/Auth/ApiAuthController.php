@@ -48,7 +48,7 @@ class ApiAuthController extends Controller
 
         }
         $user = User::create($request->toArray());
-        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+//        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $response = ['token' => $request['category']];
         return response($response, 200);
     }
