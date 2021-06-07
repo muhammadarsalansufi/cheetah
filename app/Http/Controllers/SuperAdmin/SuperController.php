@@ -341,7 +341,20 @@ class SuperController extends Controller
         $response = ['message'=>'True','status'=>$slider];
         return response($response, 200);
     }
-
+    public function feedbackdelete(Request $request)
+    {
+        $id = $request->id;
+        $slider = DB::table('user_feedback')->where('id','=',$id)->delete();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function contactresdelete(Request $request)
+    {
+        $id = $request->id;
+        $slider = DB::table('contact_us')->where('id','=',$id)->delete();
+        $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
 
 
 }
