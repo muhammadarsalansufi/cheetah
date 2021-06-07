@@ -19,6 +19,8 @@ class ApiAuthController extends Controller
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function register (Request $request) {
+        $response = ['token' => $request['category_type']];
+        return response($response, 200);
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -49,8 +51,7 @@ class ApiAuthController extends Controller
         }
         $user = User::create($request->toArray());
 //        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-        $response = ['token' => $request['category_type']];
-        return response($response, 200);
+
     }
 
 
