@@ -50,8 +50,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getOtherImages', 'SuperAdmin\SuperController@getOtherImages')->middleware('api.superAdmin')->name('getOtherImages');
     Route::get('/getContactResponses', 'SuperAdmin\SuperController@getContactResponses')->middleware('api.superAdmin')->name('getContactResponses');
     Route::get('/getFeedbackResponses', 'SuperAdmin\SuperController@getFeedbackResponses')->middleware('api.superAdmin')->name('getFeedbackResponses');
-    Route::get('/feedbackdelete', 'SuperAdmin\SuperController@feedbackdelete')->middleware('api.superAdmin')->name('feedbackdelete');
-    Route::get('/contactresdelete', 'SuperAdmin\SuperController@contactresdelete')->middleware('api.superAdmin')->name('contactresdelete');
+    Route::post('/feedbackdelete', 'SuperAdmin\SuperController@feedbackdelete')->middleware('api.superAdmin')->name('feedbackdelete');
+    Route::post('/contactresdelete', 'SuperAdmin\SuperController@contactresdelete')->middleware('api.superAdmin')->name('contactresdelete');
 
 
 });
