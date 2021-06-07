@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\CateringServiceProvider;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
@@ -35,7 +36,13 @@ class ApiAuthController extends Controller
         $request['type'] = $request['type'] ? $request['type']  : 0;
         if($request['category'] == 'catering')
         {
-
+            $catering = new CateringServiceProvider();
+            $catering->name = $request->name;
+            $catering->email = $request->email;
+            $catering->email_status = $request->email_status;
+            $catering->approval_status = $request->approval_status;
+            $catering->status = $request->status;
+            $catering->save();
         }
         if($request['category'] == 'restaurant')
         {
