@@ -18,42 +18,41 @@ class ApiAuthController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function register (Request $request) {
-        $response = ['token' => $request['category_type']];
-        return response($response, 200);
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
-            'type' => 'integer'
-
-        ]);
-        if ($validator->fails())
-        {
-            return response(['errors'=>$validator->errors()->all()], 422);
-        }
-        $request['password']=Hash::make($request['password']);
-        $request['remember_token'] = Str::random(10);
-        $request['type'] = $request['type'] ? $request['type']  : 0;
-        if($request['category_type'] == 'catering')
-        {
-            $catering = new CateringServiceProvider();
-            $catering->name = $request->name;
-            $catering->email = $request->email;
-            $catering->email_status = $request->email_status;
-            $catering->approval_status = $request->approval_status;
-            $catering->status = $request->status;
-            $catering->save();
-        }
-        if($request['category_type'] == 'restaurant')
-        {
-
-        }
-        $user = User::create($request->toArray());
-//        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-
-    }
-
+//    public function register (Request $request) {
+//        $validator = Validator::make($request->all(), [
+//            'name' => 'required|string|max:255',
+//            'email' => 'required|string|email|max:255|unique:users',
+//            'password' => 'required|string|min:6|confirmed',
+//            'type' => 'integer'
+//
+//        ]);
+//        if ($validator->fails())
+//        {
+//            return response(['errors'=>$validator->errors()->all()], 422);
+//        }
+//        $request['password']=Hash::make($request['password']);
+//        $request['remember_token'] = Str::random(10);
+//        $request['type'] = $request['type'] ? $request['type']  : 0;
+//        if($request['category'] == 'catering')
+//        {
+//            $catering = new CateringServiceProvider();
+//            $catering->name = $request->name;
+//            $catering->email = $request->email;
+//            $catering->email_status = $request->email_status;
+//            $catering->approval_status = $request->approval_status;
+//            $catering->status = $request->status;
+//            $catering->save();
+//        }
+//        if($request['category'] == 'restaurant')
+//        {
+//
+//        }
+//        $user = User::create($request->toArray());
+////        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+//        $response = ['token' => $request['category']];
+//        return response($response, 200);
+//    }
+//
 
     /**
      * @param Request $request
