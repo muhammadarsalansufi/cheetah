@@ -28,7 +28,7 @@ class ApiAuthController extends Controller
         ]);
         if ($validator->fails())
         {
-            return response(['errors'=>$validator->errors()->all()], 422);
+            return response(['errors'=>$validator->errors()->all()], 200);
         }
         $request['password']=Hash::make($request['password']);
         $request['remember_token'] = Str::random(10);
@@ -38,12 +38,12 @@ class ApiAuthController extends Controller
             $catering = new CateringServiceProvider();
             $catering->name = $request->name;
             $catering->email = $request->email;
-            $catering->email_status = $request->email_status;
-            $catering->approval_status = $request->approval_status;
-            $catering->status = $request->status;
+            $catering->email_status = 'pending';
+            $catering->approval_status = 'pending';
+            $catering->status = 'pending';
             $catering->save();
         }
-        if($request['category'] == 'restaurant')
+        if($request['category'] == 2)
         {
 
         }

@@ -8,6 +8,9 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Admins' => $baseDir . '/app/Admins.php',
     'App\\Article' => $baseDir . '/app/Article.php',
+    'App\\CateringDeals' => $baseDir . '/app/CateringDeals.php',
+    'App\\CateringServiceProvider' => $baseDir . '/app/CateringServiceProvider.php',
+    'App\\CateringServices' => $baseDir . '/app/CateringServices.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\ContactUs' => $baseDir . '/app/ContactUs.php',
     'App\\Contacts' => $baseDir . '/app/Contacts.php',
@@ -54,6 +57,7 @@ return array(
     'App\\ServicesOrders' => $baseDir . '/app/ServicesOrders.php',
     'App\\SocialLinks' => $baseDir . '/app/SocialLinks.php',
     'App\\SuperAdmin' => $baseDir . '/app/SuperAdmin.php',
+    'App\\Testimonials' => $baseDir . '/app/Testimonials.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\UserFeedback' => $baseDir . '/app/UserFeedback.php',
     'App\\WebContentSingle' => $baseDir . '/app/WebContentSingle.php',

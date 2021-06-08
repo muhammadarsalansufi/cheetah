@@ -564,6 +564,9 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
     public static $classMap = array (
         'App\\Admins' => __DIR__ . '/../..' . '/app/Admins.php',
         'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
+        'App\\CateringDeals' => __DIR__ . '/../..' . '/app/CateringDeals.php',
+        'App\\CateringServiceProvider' => __DIR__ . '/../..' . '/app/CateringServiceProvider.php',
+        'App\\CateringServices' => __DIR__ . '/../..' . '/app/CateringServices.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\ContactUs' => __DIR__ . '/../..' . '/app/ContactUs.php',
         'App\\Contacts' => __DIR__ . '/../..' . '/app/Contacts.php',
@@ -610,6 +613,7 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
         'App\\ServicesOrders' => __DIR__ . '/../..' . '/app/ServicesOrders.php',
         'App\\SocialLinks' => __DIR__ . '/../..' . '/app/SocialLinks.php',
         'App\\SuperAdmin' => __DIR__ . '/../..' . '/app/SuperAdmin.php',
+        'App\\Testimonials' => __DIR__ . '/../..' . '/app/Testimonials.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\UserFeedback' => __DIR__ . '/../..' . '/app/UserFeedback.php',
         'App\\WebContentSingle' => __DIR__ . '/../..' . '/app/WebContentSingle.php',
