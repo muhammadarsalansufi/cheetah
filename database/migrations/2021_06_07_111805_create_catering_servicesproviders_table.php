@@ -23,6 +23,7 @@ class CreateCateringServicesprovidersTable extends Migration
             $table->string('logo')->nullable();
             $table->string('promo_video')->nullable();
             $table->string('hours')->nullable();
+            $table->string('status')->nullable();
             $table->string('post_code')->nullable();
             $table->timestamps();
         });
