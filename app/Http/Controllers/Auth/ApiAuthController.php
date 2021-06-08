@@ -33,7 +33,7 @@ class ApiAuthController extends Controller
         $request['password']=Hash::make($request['password']);
         $request['remember_token'] = Str::random(10);
         $request['type'] = $request['type'] ? $request['type']  : 0;
-        if($request['category'] == 'catering')
+        if($request['category'] == 1)
         {
             $catering = new CateringServiceProvider();
             $catering->name = $request->name;
