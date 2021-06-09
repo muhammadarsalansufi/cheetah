@@ -17,6 +17,7 @@ class CreateCateringServicesprovidersTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->string('user_id')->nullable();
             $table->string('email_status')->nullable();
             $table->string('approval_status')->nullable();
             $table->string('company_name')->nullable();

@@ -13,6 +13,7 @@ class CateringProfileController extends Controller
     public function addprofile(Request $request)
     {
 
+
     }
     public function editprofile(Request $request)
     {

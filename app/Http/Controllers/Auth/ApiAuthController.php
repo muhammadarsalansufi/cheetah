@@ -33,11 +33,13 @@ class ApiAuthController extends Controller
         $request['password']=Hash::make($request['password']);
         $request['remember_token'] = Str::random(10);
         $request['type'] = $request['type'] ? $request['type']  : 0;
+        $user = User::create($request->toArray());
         if($request['category'] == 1)
         {
             $catering = new CateringServiceProvider();
             $catering->name = $request->name;
             $catering->email = $request->email;
+            $catering->user_id = $user->id;
             $catering->email_status = 'pending';
             $catering->approval_status = 'pending';
             $catering->status = 'pending';
@@ -47,7 +49,7 @@ class ApiAuthController extends Controller
         {
 
         }
-        $user = User::create($request->toArray());
+
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
         $response = ['token' => $token,'message' => 'True'];
         return response($response, 200);
