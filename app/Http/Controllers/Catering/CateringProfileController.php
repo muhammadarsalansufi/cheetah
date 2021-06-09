@@ -30,12 +30,12 @@ class CateringProfileController extends Controller
         ]);
         if($editcatering == 1)
         {
-            $message = ["status" => "True"];
+            $message = ["status" => "True","authid"=>$id];
 
         }
         else
         {
-            $message = ["status" => "False"];
+            $message = ["status" => "False","authid"=>$id];
 
         }
         return response($message, 200);
