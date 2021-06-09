@@ -13,7 +13,7 @@ class CateringProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
-        $id = $request->user_id;
+        $id = auth()->user()->id;
         $editcatering = CateringServiceProvider::where('user_id','=',$id)->update([
             'company_name' => $request->company_name,
             'company_email' => $request->company_email,
