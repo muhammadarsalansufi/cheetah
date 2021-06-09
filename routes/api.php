@@ -54,6 +54,14 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/contactresdelete', 'SuperAdmin\SuperController@contactresdelete')->middleware('api.superAdmin')->name('contactresdelete');
 
 
+
+    ////// catering profile managment
+    Route::post('/addprofile', 'Catering\CateringProfileController@addprofile')->middleware('api.cateringAdmin')->name('addprofile');
+    Route::post('/editprofile', 'Catering\CateringProfileController@editprofile')->middleware('api.cateringAdmin')->name('contactresdelete');
+    Route::post('/getOrders', 'Catering\CateringProfileController@getOrders')->middleware('api.cateringAdmin')->name('contactresdelete');
+    Route::post('/deleteOrder', 'Catering\CateringProfileController@deleteOrder')->middleware('api.cateringAdmin')->name('contactresdelete');
+    Route::post('/manageprofile', 'Catering\CateringProfileController@manageprofile')->middleware('api.cateringAdmin')->name('contactresdelete');
+
 });
 
 ///web global routes
