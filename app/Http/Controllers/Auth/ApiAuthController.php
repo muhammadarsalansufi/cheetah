@@ -51,7 +51,7 @@ class ApiAuthController extends Controller
         }
 
         $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-        $response = ['token' => $token,'message' => 'True'];
+        $response = ['token' => $token,'message' => 'True','record'=>$user];
         return response($response, 200);
     }
 
