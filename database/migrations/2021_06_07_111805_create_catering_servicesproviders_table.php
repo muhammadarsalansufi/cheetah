@@ -19,12 +19,18 @@ class CreateCateringServicesprovidersTable extends Migration
             $table->string('email')->nullable();
             $table->string('email_status')->nullable();
             $table->string('approval_status')->nullable();
-            $table->string('catestatusgory')->nullable();
-            $table->string('logo')->nullable();
-            $table->string('promo_video')->nullable();
-            $table->string('hours')->nullable();
+            $table->string('company_name')->nullable();
+            $table->string('company_email')->nullable();
             $table->string('status')->nullable();
-            $table->string('post_code')->nullable();
+            $table->string('zipcode')->nullable();
+            $table->string('landline')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('fax')->nullable();
+            $table->string('address')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
             $table->timestamps();
         });
     }
