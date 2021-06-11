@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Catering;
 
 
 use App\AccountDetails;
+use App\CateringContent;
 use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
@@ -42,7 +43,7 @@ class CateringProfileController extends Controller
         'staffImg' => $request->staffImg,
         'status' => 'Active'
     ]);
-        $editContent = CateringStaff::where('user_id','=',$id)->update([
+        $editContent = CateringContent::where('user_id','=',$id)->update([
             'logoImg' => $request->staff_name,
             'banner_content' => $request->staff_designation,
             'bannerImg' => $request->bannerImg,
