@@ -42,6 +42,30 @@ class CateringProfileController extends Controller
         'staffImg' => $request->staffImg,
         'status' => 'Active'
     ]);
+        $editContent = CateringStaff::where('user_id','=',$id)->update([
+            'logoImg' => $request->staff_name,
+            'banner_content' => $request->staff_designation,
+            'bannerImg' => $request->bannerImg,
+            'aboutusImg' => $request->aboutusImg,
+            'facebook_link' => $request->facebook_link,
+            'instagram_link' => $request->instagram_link,
+            'landline_content' => $request->landline_content,
+            'mobile_content' => $request->mobile_content,
+            'email_content' => $request->email_content,
+            'address_content' => $request->address_content,
+            'vision_content' => $request->vision_content,
+            'monday_friday' => $request->monday_friday,
+            'saturday' => $request->saturday,
+            'sunday' => $request->sunday,
+            'gallery1Img' => $request->gallery1Img,
+            'gallery2Img' => $request->gallery2Img,
+            'gallery3Img' => $request->gallery3Img,
+            'gallery4Img' => $request->gallery4Img,
+            'gallery5Img' => $request->gallery5Img,
+            'gallery6Img' => $request->gallery6Img,
+            'status' => $request->status,
+            'user_id' => $request->user_id,
+        ]);
         if($editcatering == 1)
         {
             $message = ["status" => "True","authid"=>$id,"response"=>$request->all()];
