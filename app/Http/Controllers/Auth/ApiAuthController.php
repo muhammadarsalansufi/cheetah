@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\AccountDetails;
 use App\CateringServiceProvider;
+use App\CateringStaff;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
@@ -44,6 +46,16 @@ class ApiAuthController extends Controller
             $catering->approval_status = 'pending';
             $catering->status = 'pending';
             $catering->save();
+            $account = new AccountDetails();
+            $account->user_id = $user->id;
+            $account->cate_id = $catering->category;
+            $account->catering_id = $catering->id;
+            $account->restaurant_id = "serviceprovider";
+            $account->save();
+            $staff = new CateringStaff();
+            $staff->user_id =$user->id;
+            $staff->catering_provider_id = $catering->id;
+            $staff->save();
         }
         if($request['category'] == 2)
         {

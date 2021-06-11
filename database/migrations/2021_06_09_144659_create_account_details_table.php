@@ -15,10 +15,10 @@ class CreateAccountDetailsTable extends Migration
     {
         Schema::create('account_details', function (Blueprint $table) {
             $table->id();
-            $table->string('account_num')->nullable();
+            $table->string('card_number')->nullable();
             $table->string('cvv')->nullable();
-            $table->string('expiry')->nullable();
-            $table->string('holder_name')->nullable();
+            $table->string('expiry_date')->nullable();
+            $table->string('owner_name')->nullable();
             $table->string('user_id')->nullable();
             $table->string('cate_id')->nullable();
             $table->string('catering_id')->nullable();

@@ -16,10 +16,11 @@ class CreateCateringStaffTable extends Migration
         Schema::create('catering_staff', function (Blueprint $table) {
             $table->id();
             $table->string('catering_provider_id')->nullable();
-            $table->string('member_name')->nullable();
-            $table->string('holder_name')->nullable();
-            $table->string('holder_name')->nullable();
-            $table->string('holder_name')->nullable();
+            $table->string('staff_name')->nullable();
+            $table->string('staff_designation')->nullable();
+            $table->string('staffImg')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

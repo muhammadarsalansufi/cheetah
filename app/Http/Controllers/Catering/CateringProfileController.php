@@ -4,7 +4,9 @@
 namespace App\Http\Controllers\Catering;
 
 
+use App\AccountDetails;
 use App\CateringServiceProvider;
+use App\CateringStaff;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -28,6 +30,18 @@ class CateringProfileController extends Controller
             'city' => $request->city,
             'state' => $request->state
         ]);
+        $editAccount = AccountDetails::where('user_id','=',$id)->update([
+            'card_number' => $request->card_number,
+            'cvv' => $request->cvv,
+            'expiry_date' => $request->expiry_date,
+            'owner_name' => $request->owner_name
+        ]);
+        $editStaff = CateringStaff::where('user_id','=',$id)->update([
+        'staff_name' => $request->staff_name,
+        'staff_designation' => $request->staff_designation,
+        'staffImg' => $request->staffImg,
+        'status' => 'Active'
+    ]);
         if($editcatering == 1)
         {
             $message = ["status" => "True","authid"=>$id,"response"=>$request->all()];
