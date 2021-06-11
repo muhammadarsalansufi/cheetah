@@ -17,7 +17,7 @@ class CreateAccountDetailsTable extends Migration
             $table->id();
             $table->string('account_num')->nullable();
             $table->string('cvv')->nullable();
-            $table->string('expiery')->nullable();
+            $table->string('expiry')->nullable();
             $table->string('holder_name')->nullable();
             $table->string('user_id')->nullable();
             $table->string('cate_id')->nullable();
