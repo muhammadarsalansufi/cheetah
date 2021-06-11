@@ -64,8 +64,7 @@ class CateringProfileController extends Controller
             'gallery4Img' => $request->gallery4Img,
             'gallery5Img' => $request->gallery5Img,
             'gallery6Img' => $request->gallery6Img,
-            'status' => $request->status,
-            'user_id' => $request->user_id,
+            'status' => $request->status
         ]);
         if($editcatering == 1)
         {
