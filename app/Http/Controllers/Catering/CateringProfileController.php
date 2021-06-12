@@ -138,7 +138,7 @@ class CateringProfileController extends Controller
     ]);
         $editContent = CateringContent::where('user_id','=',$id)->update([
             'logoImg' => $logoImg,
-            'banner_content' => $request->staff_designation,
+            'banner_content' => $request->banner_content,
             'bannerImg' => $bannerImg,
             'aboutusImg' => $aboutusImg,
             'facebook_link' => $request->facebook_link,
