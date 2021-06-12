@@ -171,7 +171,7 @@ class CateringProfileController extends Controller
         }
         return response($message, 200);
     }
-    public function getprofile()
+    public function getsingleprofile()
     {
         $id = auth()->user()->id;
         $catering = CateringServiceProvider::where('user_id','=',$id)->get();
