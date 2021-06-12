@@ -61,7 +61,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/getOrders', 'Catering\CateringProfileController@getOrders')->middleware('api.cateringAdmin')->name('contactresdelete');
     Route::post('/deleteOrder', 'Catering\CateringProfileController@deleteOrder')->middleware('api.cateringAdmin')->name('contactresdelete');
     Route::post('/manageprofile', 'Catering\CateringProfileController@manageprofile')->middleware('api.cateringAdmin')->name('contactresdelete');
-    Route::post('/getsingleprofile', 'Catering\CateringProfileController@getsingleprofile')->middleware('api.cateringAdmin')->name('getsingleprofile');
+    Route::get('/getsingleprofile', 'Catering\CateringProfileController@getsingleprofile')->middleware('api.cateringAdmin')->name('getsingleprofile');
 
 });
 
