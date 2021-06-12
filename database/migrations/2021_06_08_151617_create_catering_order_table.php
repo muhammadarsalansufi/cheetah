@@ -16,6 +16,7 @@ class CreateCateringOrderTable extends Migration
         Schema::create('catering_order', function (Blueprint $table) {
             $table->id();
             $table->string('username')->nullable();
+            $table->string('catering_id')->nullable();
             $table->string('date')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();

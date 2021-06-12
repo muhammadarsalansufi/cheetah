@@ -183,10 +183,6 @@ class CateringProfileController extends Controller
         return response($message, 200);
 
     }
-    public function editprofile(Request $request)
-    {
-
-    }
     public function getOrders()
     {
 
