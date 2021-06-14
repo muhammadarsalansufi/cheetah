@@ -17,8 +17,8 @@ class CateringProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
-        info($request->catering_staff);
-        $message = ["status" => "True","res" => $request->catering_staff];
+
+        $message = ["status" => "True","res" => $request->all()];
         return response($message, 200);
         $id = auth()->user()->id;
         $logoImg = 'not defined';
