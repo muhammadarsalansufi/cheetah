@@ -17,7 +17,7 @@ class CateringProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
-        $tell = $request->catering_staff;
+        $tell =array_values($request->catering_staff) ;
         $message = ["status" => gettype($tell)];
         return response($message, 200);
         $counter = count($tell);
