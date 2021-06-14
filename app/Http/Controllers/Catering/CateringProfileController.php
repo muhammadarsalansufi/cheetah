@@ -18,14 +18,15 @@ class CateringProfileController extends Controller
     public function addprofile(Request $request)
     {
         $tell = $request->catering_staff;
+        $message = ["status" => gettype($tell)];
+        return response($message, 200);
         $counter = count($tell);
-        $levelcounter = $counter -1;
+        $levelcounter = 4 -1;
         for ($x = 0; $x <= $levelcounter; $x++) {
             $datas = array_values($tell)[$x];
             $tasks[$x] = $datas;
         }
-        $message = ["status" => $tasks];
-        return response($message, 200);
+
         $id = auth()->user()->id;
         $logoImg = 'not defined';
         $staffImg = 'not defined';
