@@ -52,6 +52,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getFeedbackResponses', 'SuperAdmin\SuperController@getFeedbackResponses')->middleware('api.superAdmin')->name('getFeedbackResponses');
     Route::post('/feedbackdelete', 'SuperAdmin\SuperController@feedbackdelete')->middleware('api.superAdmin')->name('feedbackdelete');
     Route::post('/contactresdelete', 'SuperAdmin\SuperController@contactresdelete')->middleware('api.superAdmin')->name('contactresdelete');
+    Route::get('/pendingCaterings', 'SuperAdmin\SuperController@pendingCaterings')->middleware('api.superAdmin')->name('pendingCaterings');
+    Route::post('/approvePendingCaterings', 'SuperAdmin\SuperController@approvePendingCaterings')->middleware('api.superAdmin')->name('approvePendingCaterings');
 
 
 

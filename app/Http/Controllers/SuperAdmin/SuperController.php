@@ -4,6 +4,7 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 
+use App\CateringServiceProvider;
 use App\Contacts;
 use App\Content;
 use App\Http\Controllers\Controller;
@@ -353,6 +354,19 @@ class SuperController extends Controller
         $id = $request->id;
         $slider = DB::table('contact_us')->where('id','=',$id)->delete();
         $response = ['message'=>'True','status'=>$slider];
+        return response($response, 200);
+    }
+    public function pendingCaterings()
+    {
+        $pending = CateringServiceProvider::where('approval_status','=','pending')->get();
+        $response = ['message'=>'True','record'=>$pending ];
+        return response($response, 200);
+    }
+    public function approvePendingCaterings(Request $request)
+    {
+        $id = $request->id;
+        $pending = CateringServiceProvider::where('id','=',$id)->update(['approval_status'=>'Approved']);
+        $response = ['message'=>'True','record'=>$pending ];
         return response($response, 200);
     }
 
