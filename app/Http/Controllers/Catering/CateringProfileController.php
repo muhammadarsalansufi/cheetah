@@ -17,7 +17,8 @@ class CateringProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
-        $message = ["status" => $request->all()];
+        $explode_id = array_map('intval', explode(',', $request->catering_staff));
+        $message = ["status" => $explode_id];
         return response($message, 200);
         $id = auth()->user()->id;
         $logoImg = 'not defined';
