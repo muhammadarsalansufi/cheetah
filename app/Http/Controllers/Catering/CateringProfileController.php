@@ -17,16 +17,8 @@ class CateringProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
-        $tell =array_values($request->catering_staff) ;
-        $message = ["status" => gettype($tell)];
+        $message = ["status" => $request->all()];
         return response($message, 200);
-        $counter = count($tell);
-        $levelcounter = 4 -1;
-        for ($x = 0; $x <= $levelcounter; $x++) {
-            $datas = array_values($tell)[$x];
-            $tasks[$x] = $datas;
-        }
-
         $id = auth()->user()->id;
         $logoImg = 'not defined';
         $staffImg = 'not defined';
@@ -38,6 +30,10 @@ class CateringProfileController extends Controller
         $gallery4Img = 'not defined';
         $gallery5Img = 'not defined';
         $gallery6Img = 'not defined';
+        $staff1Img = 'not defined';
+        $staff2Img = 'not defined';
+        $staff3Img = 'not defined';
+        $staff4Img = 'not defined';
         if($file = $request->hasFile('logoImg')) {
             $file = $request->file('logoImg') ;
             $fileName1 = $file->getClientOriginalName() ;
@@ -118,6 +114,38 @@ class CateringProfileController extends Controller
             $file->move($destinationPath,$gallery6Img);
             $newCategory= URL::asset('images').'/'.$gallery6Img ;
         }
+        if($file = $request->hasFile('staff1Img')) {
+            $file = $request->file('staff1Img') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $staff1Img = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$gallery6Img);
+            $newCategory= URL::asset('images').'/'.$staff1Img ;
+        }
+        if($file = $request->hasFile('staff2Img')) {
+            $file = $request->file('staff2Img') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $staff2Img= 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$staff2Img);
+            $newCategory= URL::asset('images').'/'.$staff2Img ;
+        }
+        if($file = $request->hasFile('staff3Img')) {
+            $file = $request->file('staff3Img') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $staff3Img = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$staff3Img);
+            $newCategory= URL::asset('images').'/'.$staff3Img ;
+        }
+        if($file = $request->hasFile('staff4Img')) {
+            $file = $request->file('staff4Img') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $staff4Img = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$staff4Img);
+            $newCategory= URL::asset('images').'/'.$staff4Img ;
+        }
 
 
         $editcatering = CateringServiceProvider::where('user_id','=',$id)->update([
@@ -141,9 +169,9 @@ class CateringProfileController extends Controller
             'owner_name' => $request->owner_name
         ]);
         $editStaff = CateringStaff::where('user_id','=',$id)->update([
-        'staff_name' => $request->staff_name,
-        'staff_designation' => $request->staff_designation,
-        'staffImg' => $staffImg,
+        'staff_name' => $request->staff_name1,
+        'staff_designation' => $request->staff_designation1,
+        'staffImg' => $staff1Img,
         'status' => 'Active'
     ]);
         $editContent = CateringContent::where('user_id','=',$id)->update([
