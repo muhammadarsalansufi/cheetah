@@ -562,11 +562,15 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
     );
 
     public static $classMap = array (
+        'App\\AccountDetails' => __DIR__ . '/../..' . '/app/AccountDetails.php',
         'App\\Admins' => __DIR__ . '/../..' . '/app/Admins.php',
         'App\\Article' => __DIR__ . '/../..' . '/app/Article.php',
+        'App\\CateringContent' => __DIR__ . '/../..' . '/app/CateringContent.php',
         'App\\CateringDeals' => __DIR__ . '/../..' . '/app/CateringDeals.php',
+        'App\\CateringOrder' => __DIR__ . '/../..' . '/app/CateringOrder.php',
         'App\\CateringServiceProvider' => __DIR__ . '/../..' . '/app/CateringServiceProvider.php',
         'App\\CateringServices' => __DIR__ . '/../..' . '/app/CateringServices.php',
+        'App\\CateringStaff' => __DIR__ . '/../..' . '/app/CateringStaff.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\ContactUs' => __DIR__ . '/../..' . '/app/ContactUs.php',
         'App\\Contacts' => __DIR__ . '/../..' . '/app/Contacts.php',
@@ -583,6 +587,7 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Catering\\CateringProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Catering/CateringProfileController.php',
+        'App\\Http\\Controllers\\Catering\\GlobalCateringController' => __DIR__ . '/../..' . '/app/Http/Controllers/Catering/GlobalCateringController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\Restaurant\\ReastaurantProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Restaurant/ReastaurantProfileController.php',

@@ -6,11 +6,15 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\AccountDetails' => $baseDir . '/app/AccountDetails.php',
     'App\\Admins' => $baseDir . '/app/Admins.php',
     'App\\Article' => $baseDir . '/app/Article.php',
+    'App\\CateringContent' => $baseDir . '/app/CateringContent.php',
     'App\\CateringDeals' => $baseDir . '/app/CateringDeals.php',
+    'App\\CateringOrder' => $baseDir . '/app/CateringOrder.php',
     'App\\CateringServiceProvider' => $baseDir . '/app/CateringServiceProvider.php',
     'App\\CateringServices' => $baseDir . '/app/CateringServices.php',
+    'App\\CateringStaff' => $baseDir . '/app/CateringStaff.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\ContactUs' => $baseDir . '/app/ContactUs.php',
     'App\\Contacts' => $baseDir . '/app/Contacts.php',
@@ -27,6 +31,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\Catering\\CateringProfileController' => $baseDir . '/app/Http/Controllers/Catering/CateringProfileController.php',
+    'App\\Http\\Controllers\\Catering\\GlobalCateringController' => $baseDir . '/app/Http/Controllers/Catering/GlobalCateringController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\Restaurant\\ReastaurantProfileController' => $baseDir . '/app/Http/Controllers/Restaurant/ReastaurantProfileController.php',

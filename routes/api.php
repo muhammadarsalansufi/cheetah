@@ -79,4 +79,4 @@ Route::post('/user_feedback', 'WebContentController@user_feedback')->name('user_
 Route::get('/getcateringServices', 'GlobalCateringController@getcateringServices')->name('getcateringServices');
 Route::post('/getTestinomials', 'GlobalCateringController@getTestinomials')->name('getTestinomials');
 Route::post('/book_order', 'GlobalCateringController@book_order')->name('book_order');
-Route::post('/getcateringStaff', 'GlobalCateringController@getcateringStaff')->name('getcateringStaff');
+Route::post('/getcateringStaff', 'Catering\GlobalCateringController@getcateringStaff')->name('getcateringStaff');
