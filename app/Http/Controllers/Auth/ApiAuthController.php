@@ -90,7 +90,7 @@ class ApiAuthController extends Controller
             $RestuarantContent->save();
             $account = new AccountDetails();
             $account->user_id = $user->id;
-            $account->cate_id = $catering->category;
+            $account->cate_id = $Restaurants->id;
             $account->catering_id ="Restaurant";
             $account->restaurant_id = $Restaurants->id;
             $account->save();
