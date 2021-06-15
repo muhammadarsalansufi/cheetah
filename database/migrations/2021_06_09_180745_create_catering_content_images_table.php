@@ -16,6 +16,7 @@ class CreateCateringContentImagesTable extends Migration
         Schema::create('catering_content_images', function (Blueprint $table) {
             $table->id();
             $table->string('logoImg')->nullable();
+            $table->string('company_title')->nullable();
             $table->longText('banner_content')->nullable();
             $table->string('bannerImg')->nullable();
             $table->longText('aboutus_content')->nullable();

@@ -201,9 +201,10 @@ class CateringProfileController extends Controller
         $staffr4->staffImg =$staff4Img;
         $staffr4->status ='Active';
         $staffr4->user_id =$id;
-        $staffr4->save();
+        $staffr4->save();;;
         $editContent = CateringContent::where('user_id','=',$id)->update([
             'logoImg' => $logoImg,
+            'company_title' => $request->company_name,
             'banner_content' => $request->banner_content,
             'aboutus_content' => $request->aboutus_content,
             'bannerImg' => $bannerImg,
