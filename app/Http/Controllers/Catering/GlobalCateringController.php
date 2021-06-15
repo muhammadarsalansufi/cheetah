@@ -34,19 +34,17 @@ class GlobalCateringController extends Controller
         $message = ["status" => "True","Providers" => $cateringservices];
         return response($message, 200);
     }
-    public function getcateringStaff(Request $request)
+    public function getsinglecateringServices(Request $request)
     {
-        $id =  $request->user_id;
-        $cateringstaff = CateringStaff::select()->where('status','=','Active')->where('user_id','=',$id)->get();
-        $message = ["status" => "True","ProvidersStaff" => $cateringstaff];
+        $id =  $request->id;
+        $user_id =  $request->user_id;
+        $cateringservices = CateringContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->get();
+        $cateringtesti = Testimonials::select()->where('catering_id','=',$user_id)->get();
+        $cateringstaff = CateringStaff::select()->where('status','=','Active')->where('user_id','=',$user_id)->get();
+        $message = ["status" => "True",
+            "Providers" => $cateringservices,
+            "Staff" => $cateringstaff,
+            "Testimonials" => $cateringtesti];
         return response($message, 200);
     }
-    public function getTestinomials(Request $request)
-    {
-        $id =  $request->user_id;
-        $cateringstaff = Testimonials::select()->where('catering_id','=',$id)->get();
-        $message = ["status" => "True","ProvidersStaff" => $cateringstaff];
-        return response($message, 200);
-    }
-
 }
