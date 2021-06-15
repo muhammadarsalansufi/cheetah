@@ -77,5 +77,6 @@ Route::post('/contactGlobal', 'WebContentController@contactGlobal')->name('conta
 Route::post('/user_feedback', 'WebContentController@user_feedback')->name('user_feedback');
 
 Route::get('/getcateringServices', 'GlobalCateringController@getcateringServices')->name('getcateringServices');
+Route::post('/getTestinomials', 'GlobalCateringController@getTestinomials')->name('getTestinomials');
 Route::post('/book_order', 'GlobalCateringController@book_order')->name('book_order');
 Route::post('/getcateringStaff', 'GlobalCateringController@getcateringStaff')->name('getcateringStaff');

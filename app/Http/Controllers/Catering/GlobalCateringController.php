@@ -9,6 +9,7 @@ use App\CateringOrder;
 use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
+use App\Testimonials;
 use Illuminate\Http\Client\Request;
 
 class GlobalCateringController extends Controller
@@ -37,6 +38,13 @@ class GlobalCateringController extends Controller
     {
         $id =  $request->user_id;
         $cateringstaff = CateringStaff::select()->where('status','=','Active')->where('user_id','=',$id)->get();
+        $message = ["status" => "True","ProvidersStaff" => $cateringstaff];
+        return response($message, 200);
+    }
+    public function getTestinomials(Request $request)
+    {
+        $id =  $request->user_id;
+        $cateringstaff = Testimonials::select()->where('catering_id','=',$id)->get();
         $message = ["status" => "True","ProvidersStaff" => $cateringstaff];
         return response($message, 200);
     }
