@@ -4,7 +4,10 @@
 namespace App\Http\Controllers\Catering;
 
 
+use App\CateringContent;
 use App\CateringOrder;
+use App\CateringServiceProvider;
+use App\CateringStaff;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Client\Request;
 
@@ -23,6 +26,19 @@ class GlobalCateringController extends Controller
         return response($message, 200);
 
 
+    }
+    public function getcateringServices()
+    {
+        $cateringservices = CateringContent::select()->where('status','=','Active')->where('admin_status','=','Approved')->get();
+        $message = ["status" => "True","Providers" => $cateringservices];
+        return response($message, 200);
+    }
+    public function getcateringStaff(Request $request)
+    {
+        $id =  $request->user_id;
+        $cateringstaff = CateringStaff::select()->where('status','=','Active')->where('user_id','=',$id)->get();
+        $message = ["status" => "True","ProvidersStaff" => $cateringstaff];
+        return response($message, 200);
     }
 
 }

@@ -76,3 +76,6 @@ Route::get('/getOtherImagesWeb', 'WebContentController@getOtherImagesWeb')->name
 Route::post('/contactGlobal', 'WebContentController@contactGlobal')->name('contactGlobal');
 Route::post('/user_feedback', 'WebContentController@user_feedback')->name('user_feedback');
 
+Route::get('/getcateringServices', 'GlobalCateringController@getcateringServices')->name('getcateringServices');
+Route::post('/book_order', 'GlobalCateringController@book_order')->name('book_order');
+Route::post('/getcateringStaff', 'GlobalCateringController@getcateringStaff')->name('getcateringStaff');

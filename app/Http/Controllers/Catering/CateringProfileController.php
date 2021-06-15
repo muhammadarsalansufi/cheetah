@@ -199,7 +199,7 @@ class CateringProfileController extends Controller
         ]);
         if($editcatering == 1)
         {
-            $message = ["status" => "True","authid"=>$id,"response"=>$request->all()];
+            $message = ["status" => "True","authid"=>$id,"response"=>$request];
 
         }
         else
