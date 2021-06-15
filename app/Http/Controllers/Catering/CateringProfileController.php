@@ -9,6 +9,7 @@ use App\CateringContent;
 use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
@@ -173,6 +174,34 @@ class CateringProfileController extends Controller
         'staffImg' => $staff1Img,
         'status' => 'Active'
     ]);
+        $staffr1 = new CateringStaff();
+        $staffr1->staff_name =$request->staff_name1;
+        $staffr1->staff_designation =$request->staff_designation1;
+        $staffr1->staffImg =$staff1Img;
+        $staffr1->status ='Active';
+        $staffr1->user_id =$id;
+        $staffr1->save();
+        $staffr2 = new CateringStaff();
+        $staffr2->staff_name =$request->staff_name2;
+        $staffr2->staff_designation =$request->staff_designation2;
+        $staffr2->staffImg =$staff2Img;
+        $staffr2->status ='Active';
+        $staffr2->user_id =$id;
+        $staffr2->save();
+        $staffr3 = new CateringStaff();
+        $staffr3->staff_name =$request->staff_name3;
+        $staffr3->staff_designation =$request->staff_designation3;
+        $staffr3->staffImg =$staff3Img;
+        $staffr3->status ='Active';
+        $staffr3->user_id =$id;
+        $staffr3->save();
+        $staffr4 = new CateringStaff();
+        $staffr4->staff_name =$request->staff_name4;
+        $staffr4->staff_designation =$request->staff_designation4;
+        $staffr4->staffImg =$staff4Img;
+        $staffr4->status ='Active';
+        $staffr4->user_id =$id;
+        $staffr4->save();
         $editContent = CateringContent::where('user_id','=',$id)->update([
             'logoImg' => $logoImg,
             'banner_content' => $request->banner_content,
