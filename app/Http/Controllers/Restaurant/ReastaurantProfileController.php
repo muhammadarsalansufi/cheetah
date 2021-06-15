@@ -77,7 +77,8 @@ class ReastaurantProfileController extends Controller
                 'city' => $request->city,
                 'state' => $request->state
             ]);
-
+        $message = ["status" => "True"];
+        return response($message, 200);
     }
     public function editprofile(Request $request)
     {
