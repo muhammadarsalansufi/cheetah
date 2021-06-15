@@ -7,6 +7,8 @@ use App\CateringContent;
 use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
+use App\RestuarantContent;
+use App\Resturants;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
@@ -68,9 +70,30 @@ class ApiAuthController extends Controller
             $cateringcontent->status = "InActive";
             $cateringcontent->save();
 
+
         }
         if($request['category'] == 2)
         {
+            $Restaurants =  new Resturants();
+            $Restaurants->user_name = $request->name;
+            $Restaurants->user_email = $request->email;
+            $Restaurants->user_id = $user->id;
+            $Restaurants->email_status = "pending";
+            $Restaurants->admin_status = "pending";
+            $Restaurants->status = "inActive";
+            $Restaurants->save();
+            $RestuarantContent =  new RestuarantContent();
+            $RestuarantContent->user_id  = $user->id;
+            $RestuarantContent->status  = "inActive";
+            $RestuarantContent->admin_status  = "pending";
+            $RestuarantContent->resturant_profile_id  = $Restaurants->id;
+            $RestuarantContent->save();
+            $account = new AccountDetails();
+            $account->user_id = $user->id;
+            $account->cate_id = $catering->category;
+            $account->catering_id ="Restaurant";
+            $account->restaurant_id = $Restaurants->id;
+            $account->save();
 
         }
 
