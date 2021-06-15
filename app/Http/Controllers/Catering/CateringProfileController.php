@@ -168,14 +168,10 @@ class CateringProfileController extends Controller
             'expiry_date' => $request->expiry_date,
             'owner_name' => $request->owner_name
         ]);
-        $editStaff = CateringStaff::where('user_id','=',$id)->update([
-        'staff_name' => $request->staff_name1,
-        'staff_designation' => $request->staff_designation1,
-        'staffImg' => $staff1Img,
-        'status' => 'Active'
-    ]);
+        $cateringid = CateringStaff::where('user_id','=',$id)->pluck('catering_provider_id')->first();
         $staffr1 = new CateringStaff();
         $staffr1->staff_name =$request->staff_name1;
+        $staffr1->catering_provider_id = $cateringid;
         $staffr1->staff_designation =$request->staff_designation1;
         $staffr1->staffImg =$staff1Img;
         $staffr1->status ='Active';
@@ -185,11 +181,13 @@ class CateringProfileController extends Controller
         $staffr2->staff_name =$request->staff_name2;
         $staffr2->staff_designation =$request->staff_designation2;
         $staffr2->staffImg =$staff2Img;
+        $staffr1->catering_provider_id = $cateringid;
         $staffr2->status ='Active';
         $staffr2->user_id =$id;
         $staffr2->save();
         $staffr3 = new CateringStaff();
         $staffr3->staff_name =$request->staff_name3;
+        $staffr1->catering_provider_id = $cateringid;
         $staffr3->staff_designation =$request->staff_designation3;
         $staffr3->staffImg =$staff3Img;
         $staffr3->status ='Active';
@@ -197,6 +195,7 @@ class CateringProfileController extends Controller
         $staffr3->save();
         $staffr4 = new CateringStaff();
         $staffr4->staff_name =$request->staff_name4;
+        $staffr1->catering_provider_id = $cateringid;
         $staffr4->staff_designation =$request->staff_designation4;
         $staffr4->staffImg =$staff4Img;
         $staffr4->status ='Active';
