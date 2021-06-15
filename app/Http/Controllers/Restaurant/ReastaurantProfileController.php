@@ -9,12 +9,41 @@ use App\Http\Controllers\Controller;
 use App\RestuarantContent;
 use App\Resturants;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class ReastaurantProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
         $id = auth()->user()->id;
+        $logoImg = "not fount";
+        $aboutusImg = "not fount";
+        $bannerImg = "not fount";
+        if($file = $request->hasFile('logoImg')) {
+            $file = $request->file('logoImg') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $logoImg = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$logoImg);
+            $newCategory= URL::asset('images').'/'.$logoImg ;
+        }
+        if($file = $request->hasFile('aboutusImg')) {
+            $file = $request->file('aboutusImg') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $aboutusImg = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$aboutusImg);
+            $newCategory= URL::asset('images').'/'.$aboutusImg ;
+        }
+        if($file = $request->hasFile('bannerImg ')) {
+            $file = $request->file('bannerImg ') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $bannerImg = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$bannerImg);
+            $newCategory= URL::asset('images').'/'.$bannerImg ;
+        }
+
         $editAccount = AccountDetails::where('user_id','=',$id)->update([
             'card_number' => $request->card_number,
             'cvv' => $request->cvv,
