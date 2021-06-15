@@ -10,7 +10,7 @@ use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
 use App\Testimonials;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class GlobalCateringController extends Controller
 {
