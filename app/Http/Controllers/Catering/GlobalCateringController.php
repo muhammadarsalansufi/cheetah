@@ -30,14 +30,14 @@ class GlobalCateringController extends Controller
     }
     public function getcateringServices()
     {
-        $cateringservices = CateringContent::select('company_title','bannerImg','user_id','id')->where('status','=','Active')->where('admin_status','=','Approved')->get();
+        $cateringservices = CateringContent::select('company_title','bannerImg','id')->where('status','=','Active')->where('admin_status','=','Approved')->get();
         $message = ["status" => "True","Providers" => $cateringservices];
         return response($message, 200);
     }
     public function getsinglecateringServices(Request $request)
     {
         $id =  $request->id;
-        $user_id =  $request->user_id;
+        $user_id =  CateringContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->pluck('user_id')->first();;
         $cateringservices = CateringContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->get();
         $cateringtesti = Testimonials::select()->where('catering_id','=',$user_id)->get();
         $cateringstaff = CateringStaff::select()->where('status','=','Active')->where('user_id','=',$user_id)->get();
