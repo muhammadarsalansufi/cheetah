@@ -30,7 +30,7 @@ class GlobalCateringController extends Controller
     }
     public function getcateringServices()
     {
-        $cateringservices = CateringContent::select()->where('status','=','Active')->where('admin_status','=','Approved')->get();
+        $cateringservices = CateringContent::select('company_title','bannerImg','user_id','id')->where('status','=','Active')->where('admin_status','=','Approved')->get();
         $message = ["status" => "True","Providers" => $cateringservices];
         return response($message, 200);
     }
