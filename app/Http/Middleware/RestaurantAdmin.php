@@ -18,7 +18,7 @@ class RestaurantAdmin
     public function handle($request, Closure $next)
     {
         if (Auth::guard('api')->check() && $request->user()->type == 4 ) {
-            return $next($request);;
+            return $next($request);
         } else {
             $message = ["message" => "Permission Denied"];
             return response($message, 200);

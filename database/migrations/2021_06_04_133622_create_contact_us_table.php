@@ -19,6 +19,7 @@ class CreateContactUsTable extends Migration
             $table->string('email')->nullable();
             $table->string('subject')->nullable();
             $table->string('type')->nullable();
+            $table->string('catering_restaurant_id')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

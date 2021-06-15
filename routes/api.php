@@ -65,6 +65,10 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/manageprofile', 'Catering\CateringProfileController@manageprofile')->middleware('api.cateringAdmin')->name('contactresdelete');
     Route::get('/getsingleprofile', 'Catering\CateringProfileController@getsingleprofile')->middleware('api.cateringAdmin')->name('getsingleprofile');
 
+
+    ////// catering profile managment
+    Route::post('/addprofileRestaurant', 'Restaurant\ReastaurantProfileController@addprofile')->middleware('api.restaurantAdmin')->name('addprofileRestaurant');
+
 });
 
 ///web global routes
