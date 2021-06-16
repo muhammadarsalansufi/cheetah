@@ -19,6 +19,15 @@ class ReastaurantProfileController extends Controller
         $logoImg = "not fount";
         $aboutusImg = "not fount";
         $bannerImg = "not fount";
+        $promo_video = "not fount";
+        if($file = $request->hasFile('promo_video')) {
+            $file = $request->file('promo_video') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $promo_video = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/PromoVideo/' ;
+            $file->move($destinationPath,$promo_video);
+            $newCategory= URL::asset('images').'/'.$promo_video ;
+        }
         if($file = $request->hasFile('logoImg')) {
             $file = $request->file('logoImg') ;
             $fileName1 = $file->getClientOriginalName() ;
@@ -54,6 +63,7 @@ class ReastaurantProfileController extends Controller
             ->update([
                 'aboutus_content' => $request->aboutus_content,
                 'chef_signature' => $request->chef_signature,
+                'promo_video' => $promo_video,
                 'restaurant_name' => $request->restaurant_name,
                 'chef_content' => $request->chef_content,
                 'facebook_link' => $request->facebook_link,
