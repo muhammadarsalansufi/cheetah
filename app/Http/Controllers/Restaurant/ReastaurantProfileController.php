@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Restaurant;
 
 use App\AccountDetails;
 use App\Http\Controllers\Controller;
+use App\RestaurantFeatured;
 use App\RestuarantContent;
 use App\Resturants;
 use Illuminate\Http\Request;
@@ -19,7 +20,33 @@ class ReastaurantProfileController extends Controller
         $logoImg = "not fount";
         $aboutusImg = "not fount";
         $bannerImg = "not fount";
-
+        $featureDish1Img = "not fount";
+        $featureDish2Img = "not fount";
+        $featureDish3Img = "not fount";
+        if($file = $request->hasFile('featureDish1Img')) {
+            $file = $request->file('featureDish1Img') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $featureDish1Img = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$featureDish1Img);
+            $newCategory= URL::asset('images').'/'.$featureDish1Img ;
+        }
+        if($file = $request->hasFile('featureDish2Img')) {
+            $file = $request->file('featureDish2Img') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $featureDish2Img = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$featureDish2Img);
+            $newCategory= URL::asset('images').'/'.$featureDish2Img ;
+        }
+        if($file = $request->hasFile('featureDish3Img')) {
+            $file = $request->file('featureDish3Img') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $featureDish3Img = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$featureDish3Img);
+            $newCategory= URL::asset('images').'/'.$featureDish3Img ;
+        }
         if($file = $request->hasFile('logoImg')) {
             $file = $request->file('logoImg') ;
             $fileName1 = $file->getClientOriginalName() ;
@@ -79,6 +106,19 @@ class ReastaurantProfileController extends Controller
                 'city' => $request->city,
                 'state' => $request->state
             ]);
+        $editResturantsFeatured =  RestaurantFeatured::where('user_id','=',$id)
+            ->update([
+                'feature_dish1' => $request->feature_dish1,
+                'featureDishPrice1' => $request->featureDishPrice1,
+                'featureDish1Img' => $featureDish1Img,
+                'feature_dish2' => $request->feature_dish2,
+                'featureDishPrice2' => $request->featureDishPrice2,
+                'featureDish2Img' => $featureDish2Img,
+                'feature_dish3' => $request->feature_dish3,
+                'featureDishPrice3' => $request->featureDishPrice3,
+                'featureDish3Img' => $featureDish3Img,
+            ]);
+
         $message = ["status" => "True","data" => $request->all()];
         return response($message, 200);
     }

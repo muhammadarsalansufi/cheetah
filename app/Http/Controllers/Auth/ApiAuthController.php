@@ -7,6 +7,7 @@ use App\CateringContent;
 use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
+use App\RestaurantFeatured;
 use App\RestuarantContent;
 use App\Resturants;
 use Illuminate\Http\Request;
@@ -94,6 +95,11 @@ class ApiAuthController extends Controller
             $account->catering_id ="Restaurant";
             $account->restaurant_id = $Restaurants->id;
             $account->save();
+            $res = new RestaurantFeatured();
+            $res->user_id = $user->id;
+            $res->restaurant_id = $Restaurants->id;
+            $res->status = "Active";
+            $res->save();
 
         }
 
