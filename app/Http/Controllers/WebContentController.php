@@ -55,6 +55,7 @@ class WebContentController extends Controller
         $newcontact->email = $request->email;
         $newcontact->subject = $request->subject;
         $newcontact->type = $request->type;
+        $newcontact->catering_restaurant_id = $request->catering_restaurant_id;
         $newcontact->status = $request->status;
         $newcontact->save();
         $response = ['message'=>'True'];
