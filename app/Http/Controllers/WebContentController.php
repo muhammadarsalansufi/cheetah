@@ -13,7 +13,6 @@ use App\ImageSlider;
 use App\OtherImages;
 use App\SocialLinks;
 use App\UserFeedback;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 class WebContentController extends Controller
@@ -60,7 +59,6 @@ class WebContentController extends Controller
         $newcontact->save();
         $response = ['message'=>'True'];
         return response($response, 200);
-
     }
     public function user_feedback(Request $request)
     {
@@ -72,9 +70,5 @@ class WebContentController extends Controller
         $user->save();
         $response = ['message'=>'True'];
         return response($response, 200);
-
     }
-
-
-
 }

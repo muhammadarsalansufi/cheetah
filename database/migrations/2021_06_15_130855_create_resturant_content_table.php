@@ -16,6 +16,8 @@ class CreateResturantContentTable extends Migration
         Schema::create('resturant_content', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->nullable();
+            $table->string('promo_video')->nullable();
+            $table->string('restaurant_name')->nullable();
             $table->longText('aboutus_content')->nullable();
             $table->string('chef_signature')->nullable();
             $table->longText('chef_content')->nullable();

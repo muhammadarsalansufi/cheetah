@@ -54,6 +54,7 @@ class ReastaurantProfileController extends Controller
             ->update([
                 'aboutus_content' => $request->aboutus_content,
                 'chef_signature' => $request->chef_signature,
+                'restaurant_name' => $request->restaurant_name,
                 'chef_content' => $request->chef_content,
                 'facebook_link' => $request->facebook_link,
                 'instagram_link' => $request->instagram_link,
