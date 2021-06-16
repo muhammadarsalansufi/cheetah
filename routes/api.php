@@ -68,6 +68,7 @@ Route::middleware('auth:api')->group(function () {
 
     ////// catering profile managment
     Route::post('/addprofileRestaurant', 'Restaurant\ReastaurantProfileController@addprofile')->middleware('api.restaurantAdmin')->name('addprofileRestaurant');
+    Route::post('/addRestaurantPromo', 'Restaurant\ReastaurantProfileController@addRestaurantPromo')->middleware('api.restaurantAdmin')->name('addRestaurantPromo');
 
 });
 
