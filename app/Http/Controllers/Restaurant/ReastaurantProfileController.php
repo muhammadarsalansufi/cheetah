@@ -15,6 +15,9 @@ class ReastaurantProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
+        $message = ["status" => "True","data" =>$request->all()];
+        return response($message, 200);
+
         $id = auth()->user()->id;
         $logoImg = "not fount";
         $aboutusImg = "not fount";
