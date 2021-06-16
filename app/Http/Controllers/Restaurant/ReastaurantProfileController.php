@@ -65,8 +65,8 @@ class ReastaurantProfileController extends Controller
                 'landline_content' => $request->landline_content,
                 'mobile_content' => $request->mobile_content,
                 'email_content' => $request->email_content,
-                'logoImg' => $request->logoImg,
-                'bannerImg' => $request->bannerImg,
+                'logoImg' => $logoImg,
+                'bannerImg' => $bannerImg,
                 'aboutusImg' => $request->aboutusImg,
                 'address_content' => $request->address_content
             ]);
