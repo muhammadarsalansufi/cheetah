@@ -84,3 +84,5 @@ Route::get('/getcateringServices', 'Catering\GlobalCateringController@getcaterin
 Route::post('/getsinglecateringServices', 'Catering\GlobalCateringController@getsinglecateringServices')->name('getsinglecateringServices');
 Route::post('/book_order', 'Catering\GlobalCateringController@book_order')->name('book_order');
 
+Route::post('/getAllRestaurant', 'Restaurant\GlobalRestaurantsController@getAllRestaurant')->name('getAllRestaurant');
+
