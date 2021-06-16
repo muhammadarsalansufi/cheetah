@@ -96,6 +96,14 @@ class ReastaurantProfileController extends Controller
         }
         $editRestuarantContent =  RestuarantContent::where('user_id','=',$id)->update(['promo_video' => $promo_video]);
         $message = ["status" => "True"];
+        if($editRestuarantContent == 1)
+        {
+            $message = ["status" => "True"];
+        }
+        else
+        {
+            $message = ["status" => "False"];
+        }
         return response($message, 200);
 
     }
