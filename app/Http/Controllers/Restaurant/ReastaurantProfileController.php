@@ -15,9 +15,6 @@ class ReastaurantProfileController extends Controller
 {
     public function addprofile(Request $request)
     {
-        $message = ["status" => "True","data" =>$request->all()];
-        return response($message, 200);
-
         $id = auth()->user()->id;
         $logoImg = "not fount";
         $aboutusImg = "not fount";
@@ -67,7 +64,7 @@ class ReastaurantProfileController extends Controller
                 'email_content' => $request->email_content,
                 'logoImg' => $logoImg,
                 'bannerImg' => $bannerImg,
-                'aboutusImg' => $request->aboutusImg,
+                'aboutusImg' => $aboutusImg,
                 'address_content' => $request->address_content
             ]);
            $editResturants =  Resturants::where('user_id','=',$id)
@@ -82,7 +79,7 @@ class ReastaurantProfileController extends Controller
                 'city' => $request->city,
                 'state' => $request->state
             ]);
-        $message = ["status" => "True"];
+        $message = ["status" => "True","data" => $request->all()];
         return response($message, 200);
     }
     public function addRestaurantPromo(Request $request)
