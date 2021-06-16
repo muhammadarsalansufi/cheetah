@@ -36,8 +36,8 @@ class ReastaurantProfileController extends Controller
             $file->move($destinationPath,$aboutusImg);
             $newCategory= URL::asset('images').'/'.$aboutusImg ;
         }
-        if($file = $request->hasFile('bannerImg ')) {
-            $file = $request->file('bannerImg ') ;
+        if($file = $request->hasFile('bannerImg')) {
+            $file = $request->file('bannerImg') ;
             $fileName1 = $file->getClientOriginalName() ;
             $bannerImg = 'i'.$id.'o'.$fileName1;
             $destinationPath = public_path().'/images/' ;
