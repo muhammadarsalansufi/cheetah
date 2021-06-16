@@ -11,7 +11,7 @@ class GlobalRestaurantsController extends Controller
     public function getAllRestaurant()
     {
         $cateringservices = RestuarantContent::select('restaurant_name','bannerImg','id')->where('status','=','Active')->where('admin_status','=','Approved')->get();
-        $message = ["status" => "True","Providers" => $cateringservices];
+        $message = ["status" => "True","Restaurants" => $cateringservices];
         return response($message, 200);
     }
 
