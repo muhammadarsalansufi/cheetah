@@ -9,6 +9,7 @@ use App\CateringContent;
 use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
@@ -201,6 +202,10 @@ class CateringProfileController extends Controller
         $staffr4->status ='Active';
         $staffr4->user_id =$id;
         $staffr4->save();;;
+        $user =  User::where('id','=',$id)
+            ->update([
+                'status' => "Active"
+            ]);
         $editContent = CateringContent::where('user_id','=',$id)->update([
             'logoImg' => $logoImg,
             'company_title' => $request->company_name,

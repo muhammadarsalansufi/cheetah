@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\RestaurantFeatured;
 use App\RestuarantContent;
 use App\Resturants;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
@@ -118,7 +119,10 @@ class ReastaurantProfileController extends Controller
                 'featureDishPrice3' => $request->featureDishPrice3,
                 'featureDish3Img' => $featureDish3Img,
             ]);
-
+        $user =  User::where('id','=',$id)
+            ->update([
+                'status' => "Active"
+            ]);
         $message = ["status" => "True","data" => $request->all()];
         return response($message, 200);
     }
