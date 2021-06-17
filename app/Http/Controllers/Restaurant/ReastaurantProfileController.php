@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Restaurant;
 
 
 use App\AccountDetails;
+use App\ContactUs;
 use App\Http\Controllers\Controller;
 use App\RestaurantFeatured;
 use App\RestuarantContent;
@@ -156,10 +157,17 @@ class ReastaurantProfileController extends Controller
         $id = auth()->user()->id;
         $cateringservices = RestuarantContent::select()->where('user_id','=',$id)->get();
         $cateringtesti = Resturants::select()->where('user_id','=',$id)->get();
+        $catering_restaurant_id = Resturants::select()->where('user_id','=',$id)->pluck('id')->first();
+        $cateringaccount = AccountDetails::select()->where('user_id','=',$id)->get();
+        $cateringcontact = ContactUs::select()->where('type','=','restaurant')->where('	catering_restaurant_id','=',$catering_restaurant_id)->get();
         $featured_image = RestaurantFeatured::select()->where('user_id','=',$id)->where('status','=','Active')->get();
         $message = ["status" => "True",
             "Content" => $cateringservices,
             "Profile" => $cateringtesti,
+            "Account" => $cateringaccount,
+            "Testimonials" => $cateringtesti,
+            "Contact" => $cateringcontact,
+            "Orders" => $cateringtesti,
             "Featured" => $featured_image];
         return response($message, 200);
     }
