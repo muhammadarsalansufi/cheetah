@@ -41,10 +41,13 @@ class GlobalCateringController extends Controller
         $cateringservices = CateringContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->get();
         $cateringtesti = Testimonials::select()->where('catering_id','=',$user_id)->get();
         $cateringstaff = CateringStaff::select()->where('status','=','Active')->where('user_id','=',$user_id)->get();
-        $message = ["status" => "True",
+        $message =
+            [
+            "status" => "True",
             "Providers" => $cateringservices,
             "Staff" => $cateringstaff,
-            "Testimonials" => $cateringtesti];
+            "Testimonials" => $cateringtesti
+        ];
         return response($message, 200);
     }
 }
