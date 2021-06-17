@@ -154,7 +154,7 @@ class ReastaurantProfileController extends Controller
     public function getSingleRestaurantProfile()
     {
         $id = auth()->user()->id;
-        $cateringservices = RestuarantContent::where('id','=',$id)->get();
+        $cateringservices = RestuarantContent::select()->where('id','=',$id)->get();
         $cateringtesti = Resturants::select()->where('user_id','=',$id)->get();
         $featured_image = RestaurantFeatured::select()->where('user_id','=',$id)->where('status','=','Active')->get();
         $message = ["status" => "True",
