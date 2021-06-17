@@ -150,10 +150,9 @@ class ReastaurantProfileController extends Controller
     public function getSingleRestaurantProfile()
     {
         $id = auth()->user()->id;
-        $user_id =  RestuarantContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->pluck('user_id')->first();;
-        $cateringservices = RestuarantContent::where('id','=',$user_id)->where('status','=','Active')->where('admin_status','=','Approved')->get();
-        $cateringtesti = Resturants::select()->where('user_id','=',$user_id)->get();
-        $featured_image = RestaurantFeatured::select()->where('user_id','=',$user_id)->where('status','=','Active')->get();
+        $cateringservices = RestuarantContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->get();
+        $cateringtesti = Resturants::select()->where('user_id','=',$id)->get();
+        $featured_image = RestaurantFeatured::select()->where('user_id','=',$id)->where('status','=','Active')->get();
         $message = ["status" => "True",
             "Content" => $cateringservices,
             "Profile" => $cateringtesti,
