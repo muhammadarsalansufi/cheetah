@@ -165,7 +165,6 @@ class ReastaurantProfileController extends Controller
             "Content" => $cateringservices,
             "Profile" => $cateringtesti,
             "Account" => $cateringaccount,
-            "Testimonials" => $cateringtesti,
             "Contact" => $cateringcontact,
             "Orders" => $cateringtesti,
             "Featured" => $featured_image];

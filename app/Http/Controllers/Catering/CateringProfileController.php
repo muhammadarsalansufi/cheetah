@@ -10,6 +10,7 @@ use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\ContactUs;
 use App\Http\Controllers\Controller;
+use App\Testimonials;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -251,9 +252,16 @@ class CateringProfileController extends Controller
         $catering = CateringServiceProvider::where('user_id','=',$id)->get();
         $Account = AccountDetails::where('user_id','=',$id)->get();
         $Staff = CateringStaff::where('user_id','=',$id)->get();
+        $cateringtesti = Testimonials::where('user_id','=',$catering_restaurant_id                                                                                                               )->get();
         $Content = CateringContent::where('user_id','=',$id)->get();
         $contatc =  ContactUs::select()->where('type','=','catering')->where('catering_restaurant_id','=',$catering_restaurant_id)->get();
-        $message = ["status" => "True","Provider"=>$catering,"Account"=>$Account,"Staff"=>$Staff,"content"=>$Content,'Contact'=>$contatc];
+        $message = [
+            "status" => "True",
+            "Provider"=>$catering,
+            "Account"=>$Account,
+            "Staff"=>$Staff,
+            "content"=>$Content,'Contact'=>$contatc,
+            "Testimonials" => $cateringtesti];
         return response($message, 200);
 
     }
