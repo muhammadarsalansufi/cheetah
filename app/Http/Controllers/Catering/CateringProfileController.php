@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Catering;
 
 use App\AccountDetails;
 use App\CateringContent;
+use App\CateringOrder;
 use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\ContactUs;
@@ -267,7 +268,13 @@ class CateringProfileController extends Controller
     }
     public function getOrders()
     {
-
+        $id = auth()->user()->id;
+        $cateringid  = CateringContent::where('user_id','=',$id)->pluck('id')->first();
+        $orders = CateringOrder::where('catering_id','=',$cateringid)->get();
+        $message = [
+            "status" => "True",
+            "Orders" => $orders];
+        return response($message, 200);
     }
     public function deleteOrder(Request $request)
     {
