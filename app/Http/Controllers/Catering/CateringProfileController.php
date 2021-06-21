@@ -8,6 +8,7 @@ use App\AccountDetails;
 use App\CateringContent;
 use App\CateringServiceProvider;
 use App\CateringStaff;
+use App\ContactUs;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -246,11 +247,13 @@ class CateringProfileController extends Controller
     public function getsingleprofile()
     {
         $id = auth()->user()->id;
+        $catering_restaurant_id =  CateringServiceProvider::where('user_id','=',$id)->pluck('id')->get();
         $catering = CateringServiceProvider::where('user_id','=',$id)->get();
         $Account = AccountDetails::where('user_id','=',$id)->get();
         $Staff = CateringStaff::where('user_id','=',$id)->get();
         $Content = CateringContent::where('user_id','=',$id)->get();
-        $message = ["status" => "True","Provider"=>$catering,"Account"=>$Account,"Staff"=>$Staff,"content"=>$Content];
+        $contatc =  ContactUs::select()->where('type','=','catering')->where('catering_restaurant_id','=',$catering_restaurant_id)->get();
+        $message = ["status" => "True","Provider"=>$catering,"Account"=>$Account,"Staff"=>$Staff,"content"=>$Content,'Contact'=>$contatc];
         return response($message, 200);
 
     }
