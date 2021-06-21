@@ -4,10 +4,12 @@
 namespace App\Http\Controllers\Catering;
 
 
+use App\AccountDetails;
 use App\CateringContent;
 use App\CateringOrder;
 use App\CateringServiceProvider;
 use App\CateringStaff;
+use App\ContactUs;
 use App\Http\Controllers\Controller;
 use App\Testimonials;
 use Illuminate\Http\Request;
@@ -40,12 +42,16 @@ class GlobalCateringController extends Controller
         $user_id =  CateringContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->pluck('user_id')->first();;
         $cateringservices = CateringContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->get();
         $cateringtesti = Testimonials::select()->where('catering_id','=',$user_id)->get();
+        $cateringaccount = AccountDetails::select()->where('user_id','=',$user_id)->get();
+        $cateringcontact = ContactUs::select()->where('type','=','catering')->where('catering_restaurant_id','=',$user_id)->get();
         $cateringstaff = CateringStaff::select()->where('status','=','Active')->where('user_id','=',$user_id)->get();
         $message =
-            [
+        [
             "status" => "True",
             "Providers" => $cateringservices,
             "Staff" => $cateringstaff,
+            'Contact' => $cateringcontact,
+            'Account' => $cateringaccount,
             "Testimonials" => $cateringtesti
         ];
         return response($message, 200);
