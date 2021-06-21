@@ -48,6 +48,6 @@ class GlobalCateringController extends Controller
             "Staff" => $cateringstaff,
             "Testimonials" => $cateringtesti
         ];
-        return response($message, 200);
+        return response($message, 200);;
     }
 }
