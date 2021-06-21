@@ -252,7 +252,7 @@ class CateringProfileController extends Controller
         $catering = CateringServiceProvider::where('user_id','=',$id)->get();
         $Account = AccountDetails::where('user_id','=',$id)->get();
         $Staff = CateringStaff::where('user_id','=',$id)->get();
-        $cateringtesti = Testimonials::where('user_id','=',$catering_restaurant_id                                                                                                               )->get();
+        $cateringtesti = Testimonials::where('catering_id','=',$catering_restaurant_id)->get();
         $Content = CateringContent::where('user_id','=',$id)->get();
         $contatc =  ContactUs::select()->where('type','=','catering')->where('catering_restaurant_id','=',$catering_restaurant_id)->get();
         $message = [
