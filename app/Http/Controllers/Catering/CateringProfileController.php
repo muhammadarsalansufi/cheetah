@@ -247,7 +247,7 @@ class CateringProfileController extends Controller
     public function getsingleprofile()
     {
         $id = auth()->user()->id;
-        $catering_restaurant_id =  CateringServiceProvider::where('user_id','=',$id)->pluck('id')->get();
+        $catering_restaurant_id =  CateringServiceProvider::where('user_id','=',$id)->pluck('id')->first();
         $catering = CateringServiceProvider::where('user_id','=',$id)->get();
         $Account = AccountDetails::where('user_id','=',$id)->get();
         $Staff = CateringStaff::where('user_id','=',$id)->get();
