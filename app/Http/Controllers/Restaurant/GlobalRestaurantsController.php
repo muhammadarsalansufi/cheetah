@@ -30,7 +30,8 @@ class GlobalRestaurantsController extends Controller
          $message = ["status" => "True",
             "Content" => $cateringservices,
             "Profile" => $cateringtesti,
-            "Featured" => $featured_image];
+            "Featured" => $featured_image,
+            "userid" => $user_id ];
         return response($message, 200);
     }
 
