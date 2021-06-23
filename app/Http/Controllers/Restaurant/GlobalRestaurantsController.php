@@ -24,14 +24,13 @@ class GlobalRestaurantsController extends Controller
     {
         $id =  $request->id;
         $user_id =  RestuarantContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->pluck('user_id')->first();;
-        $cateringservices = RestuarantContent::where('id','=',$user_id)->where('status','=','Active')->where('admin_status','=','Approved')->get();
+        $cateringservices = RestuarantContent::where('id','=',$user_id)->get();
         $cateringtesti = Resturants::select()->where('user_id','=',$user_id)->get();
         $featured_image = RestaurantFeatured::select()->where('user_id','=',$user_id)->where('status','=','Active')->get();
          $message = ["status" => "True",
             "Content" => $cateringservices,
             "Profile" => $cateringtesti,
-            "Featured" => $featured_image,
-            "userid" => $user_id ];
+            "Featured" => $featured_image ];
         return response($message, 200);
     }
 
