@@ -28,6 +28,7 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
 
 Route::middleware('auth:api')->group(function () {
     Route::get('/resturantlistadmin', 'Restaurant\SuperAdminPermissionController@resturantlistadmin')->middleware('api.superAdmin')->name('resturantlistadmin');
+    Route::get('/updaterestaurantlistitem', 'Restaurant\SuperAdminPermissionController@updaterestaurantlistitem')->middleware('api.superAdmin')->name('updaterestaurantlistitem');
     Route::get('/articles', 'ArticleController@index')->middleware('api.admin')->name('articles');
     Route::post('/addimageSlider', 'SuperAdmin\SuperController@addimageSlider')->middleware('api.superAdmin')->name('addimageSlider');
     Route::post('/addContact', 'SuperAdmin\SuperController@addContact')->middleware('api.superAdmin')->name('addContact');
