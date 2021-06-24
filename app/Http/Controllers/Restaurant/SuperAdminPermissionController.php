@@ -25,6 +25,14 @@ class SuperAdminPermissionController extends Controller
         $updateprofile = Resturants::where('user_id','=',$userid)->update([
             'status'=>$request->status,
             'admin_status'=>$request->admin_status,
+            'restaurant_name'=>$request->restaurant_name,
+            'restaurant_email'=>$request->restaurant_email,
+            'landline'=>$request->landline,
+            'mobile'=>$request->mobile,
+            'fax'=>$request->fax,
+            'address'=>$request->address,
+            'zipcode'=>$request->zipcode,
+            'city'=>$request->city
 
              ]);
         $updatecontent  = RestuarantContent::where('user_id','=',$userid)->update([
