@@ -36,6 +36,7 @@ class SuperAdminPermissionController extends Controller
              ]);
         $updatecontent  = RestuarantContent::where('user_id','=',$userid)->update([
             'status'=>$request->status,
+            'restaurant_name'=>$request->restaurant_name,
             'admin_status'=>$request->admin_status,
             ]);
         $message = ["status" => "True"];
