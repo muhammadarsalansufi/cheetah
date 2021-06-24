@@ -271,7 +271,7 @@ class CateringProfileController extends Controller
     {
         $id = auth()->user()->id;
         $cateringid  = CateringContent::where('user_id','=',$id)->pluck('id')->first();
-        $orders = CateringOrder::where('catering_id','=',$cateringid)->get();
+        $orders = CateringOrder::where('catering_id','=',$id)->get();
         $message = [
             "status" => "True",
             "Orders" => $orders];
