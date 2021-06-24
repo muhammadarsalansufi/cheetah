@@ -271,10 +271,12 @@ class CateringProfileController extends Controller
     {
         $id = auth()->user()->id;
         $cateringid  = CateringContent::where('user_id','=',$id)->pluck('id')->first();
-        $orders = CateringOrder::where('catering_id','=',$id)->get();
+        $unseenorders = CateringOrder::where('catering_id','=',$id)->where('status','=','unseen')->get();
+        $seenorders = CateringOrder::where('catering_id','=',$id)->where('status','=','seen')->get();
         $message = [
             "status" => "True",
-            "Orders" => $orders];
+            "UnSeenOrders" => $unseenorders,
+            "SeenOrders" => $seenorders];
         return response($message, 200);
     }
     public function deleteOrder(Request $request)
