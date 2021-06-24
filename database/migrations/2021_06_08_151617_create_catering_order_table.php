@@ -20,6 +20,7 @@ class CreateCateringOrderTable extends Migration
             $table->string('date')->nullable();
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
+            $table->string('status')->nullable();
             $table->string('cateringProviderId')->nullable();
             $table->timestamps();
         });

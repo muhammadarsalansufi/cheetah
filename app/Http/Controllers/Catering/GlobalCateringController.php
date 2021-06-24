@@ -22,6 +22,7 @@ class GlobalCateringController extends Controller
         $order->date = $request->date;
         $order->email = $request->email;
         $order->phone = $request->phone;
+        $order->status = 'unseen';
         $order->save();
         $message = ["status" => "True"];
         return response($message, 200);

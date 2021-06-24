@@ -279,10 +279,26 @@ class CateringProfileController extends Controller
     }
     public function deleteOrder(Request $request)
     {
-
+        $id = $request->id;
+        $orders = CateringOrder::where('id','=',$id)->delete();
+        $message = [
+            "status" => "True",
+            "Orders" => $orders];
+        return response($message, 200);
     }
     public function manageprofile(Request $request)
     {
+
+    }
+    public function seenorder(Request $request)
+    {
+        $id = $request->id;
+        $cateringid  = CateringContent::where('user_id','=',$id)->pluck('id')->first();
+        $orders = CateringOrder::where('catering_id','=',$id)->update(['status'=>'seen']);
+        $message = [
+            "status" => "True",
+            "Orders" => $orders];
+        return response($message, 200);
 
     }
 
