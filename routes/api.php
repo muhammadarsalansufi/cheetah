@@ -30,6 +30,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/resturantlistadmin', 'Restaurant\SuperAdminPermissionController@resturantlistadmin')->middleware('api.superAdmin')->name('resturantlistadmin');
     Route::post('/updaterestaurantlistitem', 'Restaurant\SuperAdminPermissionController@updaterestaurantlistitem')->middleware('api.superAdmin')->name('updaterestaurantlistitem');
     Route::post('/deleterestaurantlistitem', 'Restaurant\SuperAdminPermissionController@deleterestaurantlistitem')->middleware('api.superAdmin')->name('deleterestaurantlistitem');
+    Route::get('/cateringlistadmin', 'Catering\SuperAdminPermissionController@cateringlistadmin')->middleware('api.superAdmin')->name('cateringlistadmin');
     Route::get('/articles', 'ArticleController@index')->middleware('api.admin')->name('articles');
     Route::post('/addimageSlider', 'SuperAdmin\SuperController@addimageSlider')->middleware('api.superAdmin')->name('addimageSlider');
     Route::post('/addContact', 'SuperAdmin\SuperController@addContact')->middleware('api.superAdmin')->name('addContact');
