@@ -303,5 +303,24 @@ class CateringProfileController extends Controller
         return response($message, 200);
 
     }
+    public function contactdeletecatering(Request $request)
+    {
+        $id = $request->id;
+        $contact = ContactUs::where('id','=',$id)->delete();
+        $message = [
+            "status" => "True",
+            "Orders" => $contact];
+        return response($message, 200);
+    }
+    public function contactreadcatering(Request $request)
+    {
+        $id = $request->id;
+        $contact = ContactUs::where('id','=',$id)->update(['status'=>'read']);
+        $message = [
+            "status" => "True",
+            "Orders" => $contact];
+        return response($message, 200);
+
+    }
 
 }
