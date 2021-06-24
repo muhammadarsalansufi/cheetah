@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Restaurant;
 
 
 use App\Http\Controllers\Controller;
+use App\RestuarantContent;
 use App\Resturants;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,7 @@ class SuperAdminPermissionController extends Controller
             'admin_status'=>$request->admin_status,
 
              ]);
-        $updatecontent  = Resturants::where('user_id','=',$userid)->update([
+        $updatecontent  = RestuarantContent::where('user_id','=',$userid)->update([
             'status'=>$request->status,
             'admin_status'=>$request->admin_status,
             ]);
