@@ -29,7 +29,6 @@ class SuperAdminPermissionController extends Controller
             'restaurant_email'=>$request->restaurant_email,
             'landline'=>$request->landline,
             'mobile'=>$request->mobile,
-            'fax'=>$request->fax,
             'address'=>$request->address,
             'zipcode'=>$request->zipcode,
             'city'=>$request->city
