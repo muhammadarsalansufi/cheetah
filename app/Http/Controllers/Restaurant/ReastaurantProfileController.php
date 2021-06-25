@@ -242,7 +242,7 @@ class ReastaurantProfileController extends Controller
         }
         $item = RestaurantProduct::where('id','=',$id)->update(
             [   "status" => $request->status,
-                "productname" => $request->productname,
+                "product_name" => $request->product_name,
                 "product_price" => $request->product_price,
                 "product_image" => $product_image,
                 "product_type" => $request->product_type,
