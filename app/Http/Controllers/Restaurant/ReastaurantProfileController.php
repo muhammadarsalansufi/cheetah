@@ -7,6 +7,7 @@ namespace App\Http\Controllers\Restaurant;
 use App\AccountDetails;
 use App\ContactUs;
 use App\Http\Controllers\Controller;
+use App\MenuCategories;
 use App\RestaurantFeatured;
 use App\RestuarantContent;
 use App\Resturants;
@@ -155,6 +156,7 @@ class ReastaurantProfileController extends Controller
     public function getSingleRestaurantProfile()
     {
         $id = auth()->user()->id;
+        $menutypes = MenuCategories::all();
         $cateringservices = RestuarantContent::select()->where('user_id','=',$id)->get();
         $cateringtesti = Resturants::select()->where('user_id','=',$id)->get();
         $catering_restaurant_id = Resturants::select()->where('user_id','=',$id)->pluck('id')->first();
@@ -167,7 +169,8 @@ class ReastaurantProfileController extends Controller
             "Account" => $cateringaccount,
             "Contact" => $cateringcontact,
             "Orders" => $cateringtesti,
-            "Featured" => $featured_image];
+            "Featured" => $featured_image,
+            "Menus" => $menutypes];
         return response($message, 200);
     }
     public function manageprofile(Request $request)

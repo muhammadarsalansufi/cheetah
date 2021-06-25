@@ -11,6 +11,7 @@ use App\CateringServiceProvider;
 use App\CateringStaff;
 use App\ContactUs;
 use App\Http\Controllers\Controller;
+use App\ServicesCategory;
 use App\Testimonials;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
@@ -249,6 +250,7 @@ class CateringProfileController extends Controller
     public function getsingleprofile()
     {
         $id = auth()->user()->id;
+        $cateriservices = ServicesCategory::all();
         $catering_restaurant_id =  CateringServiceProvider::where('user_id','=',$id)->pluck('id')->first();
         $catering = CateringServiceProvider::where('user_id','=',$id)->get();
         $Account = AccountDetails::where('user_id','=',$id)->get();
@@ -263,7 +265,8 @@ class CateringProfileController extends Controller
             "Account"=>$Account,
             "Staff"=>$Staff,
             "content"=>$Content,'Contact'=>$contatc,
-            "Testimonials" => $cateringtesti];
+            "Testimonials" => $cateringtesti,
+            "Services" => $cateriservices];
         return response($message, 200);
 
     }
