@@ -61,6 +61,15 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/pendingCaterings', 'SuperAdmin\SuperController@pendingCaterings')->middleware('api.superAdmin')->name('pendingCaterings');
     Route::post('/approvePendingCaterings', 'SuperAdmin\SuperController@approvePendingCaterings')->middleware('api.superAdmin')->name('approvePendingCaterings');
 
+    Route::post('/addmenucategory', 'SuperAdmin\SuperController@addmenucategory')->middleware('api.superAdmin')->name('addmenucategory');
+    Route::post('/updatemenucategory', 'SuperAdmin\SuperController@updatemenucategory')->middleware('api.superAdmin')->name('updatemenucategory');
+    Route::get('/getmenucategory', 'SuperAdmin\SuperController@getmenucategory')->middleware('api.superAdmin')->name('getmenucategory');
+    Route::post('/deleteaddmenucategory', 'SuperAdmin\SuperController@deleteaddmenucategory')->middleware('api.superAdmin')->name('deleteaddmenucategory');
+    Route::post('/addservicescategory', 'SuperAdmin\SuperController@addservicescategory')->middleware('api.superAdmin')->name('addservicescategory');
+    Route::post('/deleteservicescategory', 'SuperAdmin\SuperController@deleteservicescategory')->middleware('api.superAdmin')->name('deleteservicescategory');
+    Route::get('/getservicescategory', 'SuperAdmin\SuperController@getservicescategory')->middleware('api.superAdmin')->name('getservicescategory');
+    Route::post('/updateservicescategory', 'SuperAdmin\SuperController@updateservicescategory')->middleware('api.superAdmin')->name('updateservicescategory');
+
 
 
     ////// catering profile managment

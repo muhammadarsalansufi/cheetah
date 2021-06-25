@@ -9,7 +9,9 @@ use App\Contacts;
 use App\Content;
 use App\Http\Controllers\Controller;
 use App\ImageSlider;
+use App\MenuCategories;
 use App\OtherImages;
+use App\ServicesCategory;
 use App\SocialLinks;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -369,6 +371,71 @@ class SuperController extends Controller
         $response = ['message'=>'True','record'=>$pending ];
         return response($response, 200);
     }
+    public function  addmenucategory(Request $request)
+    {
+        $item =  new MenuCategories();
+        $item->item_name = $request->item_name;
+        $item->item_tags = $request->item_tags;
+        $item->status = $request->status;
+        $item->save();
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
 
+    }
+    public function  getmenucategory()
+    {
+        $item = MenuCategories::all();
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
+
+    }
+    public function  updatemenucategory(Request $request)
+    {
+        $item = MenuCategories::where('id','=',$request->id)->update([
+            'item_name'=>$request->item_name,
+            'item_tags'=>$request->item_tags,
+            'status'=>$request->status]);
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
+
+    }
+    public function  deleteaddmenucategory(Request $request)
+    {
+        $item = MenuCategories::where('id','=',$request->id)->delete();
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
+    }
+    public function  addservicescategory(Request $request)
+    {
+        $item =  new ServicesCategory();
+        $item->service_name = $request->service_name;
+        $item->service_tags = $request->service_tags;
+        $item->icon = $request->icon;
+        $item->status = $request->status;
+        $item->save();
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
+    }
+    public function  getservicescategory()
+    {
+        $item = ServicesCategory::all();
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
+    }
+    public function  deleteservicescategory(Request $request)
+    {
+        $item = ServicesCategory::where('id','=',$request->id)->delete();
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
+    }
+    public function  updateservicescategory(Request $request)
+    {
+        $item = ServicesCategory::where('id','=',$request->id)->update([
+            'service_name'=>$request->service_name,
+            'service_tags'=>$request->service_tags,
+            'status'=>$request->status]);
+        $response = ['message'=>'True','record'=>$item ];
+        return response($response, 200);
+    }
 
 }
