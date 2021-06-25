@@ -198,7 +198,7 @@ class ReastaurantProfileController extends Controller
         $item->user_id = $id;
         $item->rest_profile_id = $rProfileid;
         $item->rest_content_id = $rContentid;
-        $item->status = 'Active';
+        $item->status = $request->status;
         $item->product_name = $request->productname;
         $item->product_price = $request->product_price;
         $item->product_image = $product_image;
