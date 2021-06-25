@@ -378,14 +378,14 @@ class SuperController extends Controller
         $item->item_tags = $request->item_tags;
         $item->status = $request->status;
         $item->save();
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
 
     }
     public function  getmenucategory()
     {
         $item = MenuCategories::all();
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
 
     }
@@ -395,14 +395,14 @@ class SuperController extends Controller
             'item_name'=>$request->item_name,
             'item_tags'=>$request->item_tags,
             'status'=>$request->status]);
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
 
     }
     public function  deletemenucategory(Request $request)
     {
         $item = MenuCategories::where('id','=',$request->id)->delete();
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
     }
     public function  addservicescategory(Request $request)
@@ -413,19 +413,19 @@ class SuperController extends Controller
         $item->icon = $request->icon;
         $item->status = $request->status;
         $item->save();
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
     }
     public function  getservicescategory()
     {
         $item = ServicesCategory::all();
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
     }
     public function  deleteservicescategory(Request $request)
     {
         $item = ServicesCategory::where('id','=',$request->id)->delete();
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
     }
     public function  updateservicescategory(Request $request)
@@ -434,7 +434,7 @@ class SuperController extends Controller
             'service_name'=>$request->service_name,
             'service_tags'=>$request->service_tags,
             'status'=>$request->status]);
-        $response = ['message'=>'True','record'=>$item ];
+        $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);
     }
 
