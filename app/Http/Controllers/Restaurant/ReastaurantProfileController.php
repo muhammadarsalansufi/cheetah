@@ -9,9 +9,11 @@ use App\ContactUs;
 use App\Http\Controllers\Controller;
 use App\MenuCategories;
 use App\RestaurantFeatured;
+use App\RestaurantProduct;
 use App\RestuarantContent;
 use App\Resturants;
 use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 
@@ -176,6 +178,79 @@ class ReastaurantProfileController extends Controller
     public function manageprofile(Request $request)
     {
 
+    }
+    public function addFood(Request $request)
+    {
+
+        $id = auth()->user()->id;
+        $product_image = "not fount";
+        if($file = $request->hasFile('product_image')) {
+            $file = $request->file('product_image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $product_image = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$product_image);
+            $newCategory= URL::asset('images').'/'.$product_image ;
+        }
+        $rProfileid = Resturants::where('user_id','=',$id)->pluck('id')->first();
+        $rContentid = RestuarantContent::where('user_id','=',$id)->pluck('id')->first();
+        $item = new RestaurantProduct();
+        $item->user_id = $id;
+        $item->rest_profile_id = $rProfileid;
+        $item->rest_content_id = $rContentid;
+        $item->status = 'Active';
+        $item->product_name = $request->productname;
+        $item->product_price = $request->product_price;
+        $item->product_image = $product_image;
+        $item->product_type = $request->product_type;
+        $item->offer = $request->offer;
+        $item->save();
+        $itemimg = RestaurantProduct::where('id','=',$item->id)->update(
+            [
+                "product_image" => $product_image
+            ]
+        );
+        $message = ["status" => "True"];
+        return response($message, 200);
+
+    }
+    public function getFood(Request $request)
+    {
+        $id =auth()->user()->id;
+        $item = RestaurantProduct::where('user_id','=',$id)->get();
+        $message = ["status" => "True","record" => $item];
+        return response($message, 200);
+    }
+    public function deleteFood(Request $request)
+    {
+        $id = $request->id;
+        $item = RestaurantProduct::where('id','=',$id)->delete();
+        $message = ["status" => "True","record" => $item];
+        return response($message, 200);
+    }
+    public function updateFood(Request $request)
+    {
+        $id = $request->id;
+        $product_image = "not fount";
+        if($file = $request->hasFile('product_image')) {
+            $file = $request->file('product_image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $product_image = 'i'.$id.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$product_image);
+            $newCategory= URL::asset('images').'/'.$product_image ;
+        }
+        $item = RestaurantProduct::where('id','=',$id)->update(
+            [   "status" => $request->status,
+                "productname" => $request->productname,
+                "product_price" => $request->product_price,
+                "product_image" => $product_image,
+                "product_type" => $request->product_type,
+                "offer" => $request->offer
+            ]
+        );
+        $message = ["status" => "True","record" => $item];
+        return response($message, 200);
     }
 
 }
