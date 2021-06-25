@@ -64,7 +64,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/addmenucategory', 'SuperAdmin\SuperController@addmenucategory')->middleware('api.superAdmin')->name('addmenucategory');
     Route::post('/updatemenucategory', 'SuperAdmin\SuperController@updatemenucategory')->middleware('api.superAdmin')->name('updatemenucategory');
     Route::get('/getmenucategory', 'SuperAdmin\SuperController@getmenucategory')->middleware('api.superAdmin')->name('getmenucategory');
-    Route::post('/deleteaddmenucategory', 'SuperAdmin\SuperController@deleteaddmenucategory')->middleware('api.superAdmin')->name('deleteaddmenucategory');
+    Route::post('/deletemenucategory', 'SuperAdmin\SuperController@deletemenucategory')->middleware('api.superAdmin')->name('deletemenucategory');
     Route::post('/addservicescategory', 'SuperAdmin\SuperController@addservicescategory')->middleware('api.superAdmin')->name('addservicescategory');
     Route::post('/deleteservicescategory', 'SuperAdmin\SuperController@deleteservicescategory')->middleware('api.superAdmin')->name('deleteservicescategory');
     Route::get('/getservicescategory', 'SuperAdmin\SuperController@getservicescategory')->middleware('api.superAdmin')->name('getservicescategory');

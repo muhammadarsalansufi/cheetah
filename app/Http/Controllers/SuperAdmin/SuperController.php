@@ -399,7 +399,7 @@ class SuperController extends Controller
         return response($response, 200);
 
     }
-    public function  deleteaddmenucategory(Request $request)
+    public function  deletemenucategory(Request $request)
     {
         $item = MenuCategories::where('id','=',$request->id)->delete();
         $response = ['message'=>'True','record'=>$item ];
