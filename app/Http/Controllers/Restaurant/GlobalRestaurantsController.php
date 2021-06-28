@@ -37,7 +37,17 @@ class GlobalRestaurantsController extends Controller
     public function getSingleMenu()
     {
         $category = MenuCategories::all();
-        dd(count($category));
+        foreach($category as $item)
+        {
+            $items = $item->id;
+            $items[] = $items;
+
+        }
+        $message = ["status" => "True",
+            "Content" => $items];
+        return response($message, 200);
+
+//        dd(count($category));
     }
 
 }
