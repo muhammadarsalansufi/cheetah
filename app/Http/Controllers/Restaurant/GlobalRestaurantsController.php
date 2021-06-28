@@ -46,13 +46,14 @@ class GlobalRestaurantsController extends Controller
             $menus = RestaurantProduct::select('product_name','product_price','product_image','offer')->where('user_id','=',$user_id)->where('product_type','=',$items)->get();
             $message[] = [
                 "CategoryName" => $items,
-                "Content" => $menus];
+                $items => $menus];
 
         }
         $message1 = [
             "status" => "True",
             "data" => $message
         ];
+
         return response($message1, 200);
 
 //        dd(count($category));
