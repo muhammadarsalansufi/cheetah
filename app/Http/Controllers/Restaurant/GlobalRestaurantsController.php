@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Restaurant;
 use App\CateringContent;
 use App\CateringStaff;
 use App\Http\Controllers\Controller;
+use App\MenuCategories;
 use App\RestaurantFeatured;
 use App\RestuarantContent;
 use App\Resturants;
@@ -32,6 +33,11 @@ class GlobalRestaurantsController extends Controller
             "Profile" => $cateringtesti,
             "Featured" => $featured_image ];
         return response($message, 200);
+    }
+    public function getSingleMenu()
+    {
+        $category = MenuCategories::all();
+        dd(count($category));
     }
 
 }
