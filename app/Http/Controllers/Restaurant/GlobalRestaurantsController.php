@@ -50,7 +50,11 @@ class GlobalRestaurantsController extends Controller
                 "Content" => $menus];
 
         }
-        return response($message, 200);
+        $message1 = [
+            "status" => "True",
+            "res" => $message
+        ];
+        return response($message1, 200);
 
 //        dd(count($category));
     }
