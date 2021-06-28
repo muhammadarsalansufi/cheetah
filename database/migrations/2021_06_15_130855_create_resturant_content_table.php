@@ -31,6 +31,9 @@ class CreateResturantContentTable extends Migration
             $table->string('aboutusImg')->nullable();
             $table->longText('address_content')->nullable();
             $table->string('resturant_profile_id')->nullable();
+            $table->string('delivery_time')->nullable();
+            $table->string('delivery_charges')->nullable();
+            $table->string('rating')->nullable();
             $table->string('status')->nullable();
             $table->string('admin_status')->nullable();
             $table->timestamps();
