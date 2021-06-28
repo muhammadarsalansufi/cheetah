@@ -43,7 +43,7 @@ class GlobalRestaurantsController extends Controller
         foreach($category as $item)
         {
             $items = $item->item_name;
-            $menus = RestaurantProduct::select('product_name','product_price','product_image','offer')->where('user_id','=',$user_id)->where('product_type','=',$items)->get();
+            $menus = RestaurantProduct::select('product_name','product_price','product_image','offer','quantity')->where('user_id','=',$user_id)->where('product_type','=',$items)->get();
             if(count($menus)>0)
             {
                 $message[] =
@@ -67,14 +67,13 @@ class GlobalRestaurantsController extends Controller
         foreach($category as $item)
         {
             $items = $item->item_name;
-            $menus = RestaurantProduct::select('product_name','product_price','product_image','offer')->where('product_type','=',$items)->get();
+            $menus = RestaurantProduct::select('product_name','product_price','product_image','offer','quantity')->where('product_type','=',$items)->get();
             if(count($menus)>0)
             {
-                $message[] =
-                    [
+                $message[] = [
                         "CategoryName" => $items,
                         "Content" => $menus
-                    ];
+                            ];
             }
 
         }

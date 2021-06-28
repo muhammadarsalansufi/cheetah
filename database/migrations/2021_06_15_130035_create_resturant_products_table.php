@@ -23,6 +23,7 @@ class CreateResturantProductsTable extends Migration
             $table->string('product_price')->nullable();
             $table->string('product_image')->nullable();
             $table->string('product_type')->nullable();
+            $table->integer('quantity')->default(1);
             $table->string('offer')->nullable();
             $table->timestamps();
         });
