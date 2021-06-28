@@ -35,14 +35,18 @@ class GlobalRestaurantsController extends Controller
             "Featured" => $featured_image ];
         return response($message, 200);
     }
-    public function getSingleMenu()
+    public function getSingleMenu(Request $request)
     {
+        $id =  $request->id;
+        $user_id =  RestuarantContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->pluck('user_id')->first();;
         $category = MenuCategories::all();
         foreach($category as $item)
         {
             $items = $item->item_name;
-            $menus = RestaurantProduct::where('product_type','=',$items)->get();
-            $message[] = ["status" => $items,
+            $menus = RestaurantProduct::select('product_name','product_price','product_image','offer')->where('user_id','=',$user_id)->where('product_type','=',$items)->get();
+            $message[] = [
+                "Status" => 'True',
+                "CategoryName" => $items,
                 "Content" => $menus];
 
         }
