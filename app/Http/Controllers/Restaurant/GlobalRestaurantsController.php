@@ -39,7 +39,7 @@ class GlobalRestaurantsController extends Controller
         $category = MenuCategories::all();
         foreach($category as $item)
         {
-            $items = $item->id;
+            $items = $item->item_name;
 //            $items[] = $items;
 
         }
