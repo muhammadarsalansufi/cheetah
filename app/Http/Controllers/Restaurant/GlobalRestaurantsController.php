@@ -40,7 +40,7 @@ class GlobalRestaurantsController extends Controller
         foreach($category as $item)
         {
             $items = $item->id;
-            $items[] = $items;
+//            $items[] = $items;
 
         }
         $message = ["status" => "True",
