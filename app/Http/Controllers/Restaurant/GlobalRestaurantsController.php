@@ -45,14 +45,13 @@ class GlobalRestaurantsController extends Controller
             $items = $item->item_name;
             $menus = RestaurantProduct::select('product_name','product_price','product_image','offer')->where('user_id','=',$user_id)->where('product_type','=',$items)->get();
             $message[] = [
-                "status" => "True",
                 "CategoryName" => $items,
                 "Content" => $menus];
 
         }
         $message1 = [
             "status" => "True",
-            "res" => $message
+            "data" => $message
         ];
         return response($message1, 200);
 
