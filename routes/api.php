@@ -115,4 +115,5 @@ Route::post('/getSingleRestaurant', 'Restaurant\GlobalRestaurantsController@getS
 Route::get('/getAllRestaurant', 'Restaurant\GlobalRestaurantsController@getAllRestaurant')->name('getAllRestaurant');
 
 Route::post('/getSingleMenu', 'Restaurant\GlobalRestaurantsController@getSingleMenu')->name('getSingleMenu');
+Route::get('/getAllMenu', 'Restaurant\GlobalRestaurantsController@getAllMenu')->name('getAllMenu');
 

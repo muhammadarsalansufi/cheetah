@@ -55,8 +55,32 @@ class GlobalRestaurantsController extends Controller
         ];
 
         return response($message1, 200);
-
-//        dd(count($category));
     }
+    public function getAllMenu()
+    {
+       $category = MenuCategories::all();
+        foreach($category as $item)
+        {
+            $items = $item->item_name;
+            $menus = RestaurantProduct::select('product_name','product_price','product_image','offer')->where('product_type','=',$items)->get();
+            if($menus==null)
+            {
 
+            }
+            else
+            {
+
+                $message[] = [
+                    "CategoryName" => $items,
+                    "Content" => $menus];
+
+            }
+        }
+        $message1 = [
+            "status" => "True",
+            "data" => $message
+        ];
+
+        return response($message1, 200);
+    }
 }
