@@ -42,7 +42,7 @@ class GlobalRestaurantsController extends Controller
         {
             $items = $item->item_name;
             $menus = RestaurantProduct::where('product_type','=',$items)->get();
-            $message = ["status" => $items,
+            $message[] = ["status" => $items,
                 "Content" => $menus];
 
         }
