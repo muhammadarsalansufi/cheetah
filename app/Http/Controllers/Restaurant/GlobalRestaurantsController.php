@@ -8,6 +8,7 @@ use App\CateringStaff;
 use App\Http\Controllers\Controller;
 use App\MenuCategories;
 use App\RestaurantFeatured;
+use App\RestaurantProduct;
 use App\RestuarantContent;
 use App\Resturants;
 use App\Testimonials;
@@ -40,11 +41,11 @@ class GlobalRestaurantsController extends Controller
         foreach($category as $item)
         {
             $items = $item->item_name;
-//            $items[] = $items;
+            $menus = RestaurantProduct::where('product_type','=',$items)->get();
+            $message = ["status" => $items,
+                "Content" => $menus];
 
         }
-        $message = ["status" => "True",
-            "Content" => $items];
         return response($message, 200);
 
 //        dd(count($category));
