@@ -67,7 +67,7 @@ class GlobalRestaurantsController extends Controller
         foreach($category as $item)
         {
             $items = $item->item_name;
-            $menus = RestaurantProduct::select('id','product_name','product_price','product_image','offer','quantity')->where('product_type','=',$items)->get();
+            $menus = RestaurantProduct::select('product_name','product_price','product_image','offer','quantity')->where('product_type','=',$items)->get();
             if(count($menus)>0)
             {
                 $message[] = [

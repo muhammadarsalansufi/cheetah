@@ -20,7 +20,7 @@ class CreateResturantProductsTable extends Migration
             $table->string('rest_content_id')->nullable();
             $table->string('status')->nullable();
             $table->string('product_name')->nullable();
-            $table->string('product_price')->nullable();
+            $table->integer('product_price')->nullable();
             $table->string('product_image')->nullable();
             $table->string('product_type')->nullable();
             $table->integer('quantity')->default(1);
