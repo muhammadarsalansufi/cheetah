@@ -64,25 +64,25 @@ class GlobalRestaurantsController extends Controller
     public function getAllMenu()
     {
        $category = MenuCategories::all();
-        return response($category, 200);
+
         foreach($category as $item)
         {
             $items = $item->item_name;
             $menus = RestaurantProduct::select('product_name','product_price','product_image','offer','quantity')->where('product_type','=',$items)->get();
             if(count($menus)>0)
             {
-                $message[] = [
-                        "CategoryName" => $items,
-                        "Content" => $menus
-                            ];
+//                $message[] = [
+//                        "CategoryName" => $items,
+//                        "Content" => $menus
+//                            ];
             }
 
         }
-        $message1 = [
-            "status" => "True",
-            "data" => $message
-        ];
+//        $message1 = [
+//            "status" => "True",
+//            "data" => $message
+//        ];
 
-        return response($message1, 200);
+        return response($items, 200);
     }
 }
