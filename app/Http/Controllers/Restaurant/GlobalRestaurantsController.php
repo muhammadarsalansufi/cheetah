@@ -69,14 +69,10 @@ class GlobalRestaurantsController extends Controller
         {
             $items = $item->item_name;
             $menus = RestaurantProduct::select('product_name','product_price','product_image','offer','quantity')->where('product_type','=',$items)->get();
-            if(count($menus)>0)
-            {
-                $message[] = [
+            $message[] = [
                         "CategoryName" => $items,
                         "Content" => $menus
                             ];
-            }
-
         }
         $message1 = [
             "status" => "True",
