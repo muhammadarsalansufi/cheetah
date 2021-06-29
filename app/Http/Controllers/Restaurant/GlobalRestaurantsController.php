@@ -19,23 +19,8 @@ class GlobalRestaurantsController extends Controller
     public function getAllRestaurant()
     {
         $cateringservices = RestuarantContent::select('restaurant_name','bannerImg','id','delivery_time','delivery_charges','rating')->where('status','=','Active')->where('admin_status','=','Approved')->get();
-        $message = ["status" => "True","data" => $cateringservices];
-        $test = [
-            "page"=>1,
-        "per_page"=>6,
-        "total"=>12,
-        "total_pages"=>2,
-        "data"=>["id"=>1,
-            "name"=>"cerulean",
-            "year"=>2000,
-            "color"=>"#98B2D1",
-            "pantone_value"=>"15-4020",
-        ],
-        "support"=>["url"=>"https://reqres.in/#support-heading",
-            "text"=>"To keep ReqRes free, contributions towards server costs are appreciated!"
-        ]
-        ];
-        return response($test, 200);
+        $message = ["status" => "True","Restaurants" => $cateringservices];
+        return response($message, 200);
     }
     public function getSingleRestaurant(Request $request)
     {
