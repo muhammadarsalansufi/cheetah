@@ -633,6 +633,7 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\RestaurantFeatured' => __DIR__ . '/../..' . '/app/RestaurantFeatured.php',
+        'App\\RestaurantProduct' => __DIR__ . '/../..' . '/app/RestaurantProduct.php',
         'App\\RestuarantContent' => __DIR__ . '/../..' . '/app/RestuarantContent.php',
         'App\\Resturants' => __DIR__ . '/../..' . '/app/Resturants.php',
         'App\\ResturantsAdmin' => __DIR__ . '/../..' . '/app/ResturantsAdmin.php',

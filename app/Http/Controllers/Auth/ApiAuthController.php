@@ -6,6 +6,7 @@ use App\AccountDetails;
 use App\CateringContent;
 use App\CateringServiceProvider;
 use App\CateringStaff;
+use App\EndUsers;
 use App\Http\Controllers\Controller;
 use App\RestaurantFeatured;
 use App\RestuarantContent;
@@ -100,6 +101,16 @@ class ApiAuthController extends Controller
             $res->restaurant_id = $Restaurants->id;
             $res->status = "Active";
             $res->save();
+
+        }
+        if($request['category'] == 3)
+        {
+            $enduser = new EndUsers();
+            $enduser->name = $request->name;
+            $enduser->email = $request->email;
+            $enduser->profile_image = $request->profile_image;
+            $enduser->phone = $request->phone;
+            $enduser->save();
 
         }
 

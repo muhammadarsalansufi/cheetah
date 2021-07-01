@@ -77,6 +77,7 @@ return array(
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'App\\RestaurantFeatured' => $baseDir . '/app/RestaurantFeatured.php',
+    'App\\RestaurantProduct' => $baseDir . '/app/RestaurantProduct.php',
     'App\\RestuarantContent' => $baseDir . '/app/RestuarantContent.php',
     'App\\Resturants' => $baseDir . '/app/Resturants.php',
     'App\\ResturantsAdmin' => $baseDir . '/app/ResturantsAdmin.php',
