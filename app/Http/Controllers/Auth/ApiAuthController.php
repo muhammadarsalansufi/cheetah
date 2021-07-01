@@ -110,6 +110,7 @@ class ApiAuthController extends Controller
             $enduser->email = $request->email;
             $enduser->profile_image = $request->profile_image;
             $enduser->phone = $request->phone;
+            $enduser->mobile_id = $request->mobile_id;
             $enduser->save();
 
         }

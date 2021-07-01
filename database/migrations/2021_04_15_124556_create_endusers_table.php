@@ -19,6 +19,7 @@ class CreateEndusersTable extends Migration
             $table->string('email')->nullable();
             $table->string('profile_image')->nullable();
             $table->string('phone')->nullable();
+            $table->string('mobile_id')->nullable();
             $table->timestamps();
         });
     }
