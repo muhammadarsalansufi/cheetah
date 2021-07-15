@@ -23,7 +23,7 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
     // public routes
     Route::post('/login', 'Auth\ApiAuthController@login')->name('login.api');
     Route::post('/register','Auth\ApiAuthController@register')->name('register.api');
-    Route::post('/logout', 'Auth\ApiAuthController@logout')->name('logout.api');
+    Route::post('/logout', 'Auth\ApiAuthController@logou t')->name('logout.api');
 });
 
 Route::middleware('auth:api')->group(function () {
@@ -69,6 +69,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/deleteservicescategory', 'SuperAdmin\SuperController@deleteservicescategory')->middleware('api.superAdmin')->name('deleteservicescategory');
     Route::get('/getservicescategory', 'SuperAdmin\SuperController@getservicescategory')->middleware('api.superAdmin')->name('getservicescategory');
     Route::post('/updateservicescategory', 'SuperAdmin\SuperController@updateservicescategory')->middleware('api.superAdmin')->name('updateservicescategory');
+    Route::get('/getEndUser', 'SuperAdmin\SuperController@getEndUser')->middleware('api.superAdmin')->name('getEndUser');
 
 
 
@@ -109,11 +110,7 @@ Route::post('/user_feedback', 'WebContentController@user_feedback')->name('user_
 Route::get('/getcateringServices', 'Catering\GlobalCateringController@getcateringServices')->name('getcateringServices');
 Route::post('/getsinglecateringServices', 'Catering\GlobalCateringController@getsinglecateringServices')->name('getsinglecateringServices');
 Route::post('/book_order', 'Catering\GlobalCateringController@book_order')->name('book_order');
-
-
 Route::post('/getSingleRestaurant', 'Restaurant\GlobalRestaurantsController@getSingleRestaurant')->name('getSingleRestaurant');
 Route::get('/getAllRestaurant', 'Restaurant\GlobalRestaurantsController@getAllRestaurant')->name('getAllRestaurant');
-
 Route::post('/getSingleMenu', 'Restaurant\GlobalRestaurantsController@getSingleMenu')->name('getSingleMenu');
 Route::get('/getAllMenu', 'Restaurant\GlobalRestaurantsController@getAllMenu')->name('getAllMenu');
-

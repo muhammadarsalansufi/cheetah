@@ -7,6 +7,7 @@ namespace App\Http\Controllers\SuperAdmin;
 use App\CateringServiceProvider;
 use App\Contacts;
 use App\Content;
+use App\EndUsers;
 use App\Http\Controllers\Controller;
 use App\ImageSlider;
 use App\MenuCategories;
@@ -435,6 +436,12 @@ class SuperController extends Controller
             'service_tags'=>$request->service_tags,
             'status'=>$request->status]);
         $response = ['status'=>'True','record'=>$item ];
+        return response($response, 200);
+    }
+    public function getEndUser()
+    {
+        $user = EndUsers::all();
+        $response = ['status'=>'True','data'=>$user ];
         return response($response, 200);
     }
 
