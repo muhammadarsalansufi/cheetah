@@ -83,9 +83,23 @@ class GlobalRestaurantsController extends Controller
         $message1 = [
             "status" => "True",
             "ALlCategoryies"=>$category,
-            "data" => $message
+            " " => $message
         ];
 
         return response($message1, 200);
+    }
+    public function idbasedfood(Request $request)
+    {
+        $id =  $request->id;
+        $foodname = MenuCategories::where('id','=',$id)->pluck('item_name')->first();
+        $menus = RestaurantProduct::select('id','product_name','product_price','product_image','offer','quantity')->where('product_type','=',$foodname)->get();
+        $message1 = [
+            "status" => "True",
+            "ALlFoods"=>$menus
+        ];
+
+        return response($message1, 200);
+
+
     }
 }
