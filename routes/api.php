@@ -113,4 +113,4 @@ Route::post('/getSingleRestaurant', 'Restaurant\GlobalRestaurantsController@getS
 Route::get('/getAllRestaurant', 'Restaurant\GlobalRestaurantsController@getAllRestaurant')->name('getAllRestaurant');
 Route::post('/getSingleMenu', 'Restaurant\GlobalRestaurantsController@getSingleMenu')->name('getSingleMenu');
 Route::get('/getAllMenu', 'Restaurant\GlobalRestaurantsController@getAllMenu')->name('getAllMenu');
-Route::get('/idbasedfood', 'Restaurant\GlobalRestaurantsController@idbasedfood')->name('idbasedfood');
+Route::post('/idbasedfood', 'Restaurant\GlobalRestaurantsController@idbasedfood')->name('idbasedfood');
