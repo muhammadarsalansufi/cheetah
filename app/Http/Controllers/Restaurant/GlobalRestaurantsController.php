@@ -95,6 +95,7 @@ class GlobalRestaurantsController extends Controller
         $menus = RestaurantProduct::select('id','product_name','product_price','product_image','offer','quantity')->where('product_type','=',$foodname)->get();
         $message1 = [
             "status" => "True",
+            "Name" => $foodname,
             "ALlFoods"=>$menus
         ];
 
