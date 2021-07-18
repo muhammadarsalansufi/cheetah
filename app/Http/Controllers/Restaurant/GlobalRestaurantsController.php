@@ -64,7 +64,7 @@ class GlobalRestaurantsController extends Controller
     public function getAllMenu()
     {
        $category = MenuCategories::all();
-        $message = "null";
+//        $message = "null";
         foreach($category as $item)
         {
             $items = $item->item_name;
