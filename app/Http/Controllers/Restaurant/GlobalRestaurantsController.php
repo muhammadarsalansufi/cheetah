@@ -83,7 +83,7 @@ class GlobalRestaurantsController extends Controller
         $message1 = [
             "status" => "True",
             "ALlCategoryies"=>$category,
-            " " => $message
+            "data" => $message
         ];
 
         return response($message1, 200);
