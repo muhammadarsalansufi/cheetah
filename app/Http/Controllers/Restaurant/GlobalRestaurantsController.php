@@ -74,6 +74,7 @@ class GlobalRestaurantsController extends Controller
             {
                 $message[] = [
                         "CategoryName" => $items,
+
                         "CategoryImage" => $items_image,
                         "Content" => $menus
                             ];
@@ -82,6 +83,7 @@ class GlobalRestaurantsController extends Controller
         }
         $message1 = [
             "status" => "True",
+            "ALlCategoryies"=>$category,
             "data" => $message
         ];
 
