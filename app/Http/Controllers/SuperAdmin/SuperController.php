@@ -373,10 +373,19 @@ class SuperController extends Controller
         return response($response, 200);
     }
     public function  addmenucategory(Request $request)
-    {
+    {   $item_image = "not_found";
+        if($file = $request->hasFile('item_image')) {
+            $file = $request->file('item_image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $item_image = 'i'.$item_image.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$item_image);
+            $newCategory= URL::asset('images').'/'.$item_image ;
+        }
         $item =  new MenuCategories();
         $item->item_name = $request->item_name;
         $item->item_tags = $request->item_tags;
+        $item->item_image = $item_image;
         $item->status = $request->status;
         $item->save();
         $response = ['status'=>'True','record'=>$item ];
@@ -392,9 +401,19 @@ class SuperController extends Controller
     }
     public function  updatemenucategory(Request $request)
     {
+        $item_image = "not_found";
+        if($file = $request->hasFile('item_image')) {
+            $file = $request->file('item_image') ;
+            $fileName1 = $file->getClientOriginalName() ;
+            $item_image = 'i'.$item_image.'o'.$fileName1;
+            $destinationPath = public_path().'/images/' ;
+            $file->move($destinationPath,$item_image);
+            $newCategory= URL::asset('images').'/'.$item_image ;
+        }
         $item = MenuCategories::where('id','=',$request->id)->update([
             'item_name'=>$request->item_name,
             'item_tags'=>$request->item_tags,
+            'item_image'=> $item_image,
             'status'=>$request->status]);
         $response = ['status'=>'True','record'=>$item ];
         return response($response, 200);

@@ -16,6 +16,7 @@ class CreateMenuCategoriesTable extends Migration
         Schema::create('menu_categories', function (Blueprint $table) {
             $table->id();
             $table->string('item_name')->nullable();
+            $table->string('item_image')->nullable();
             $table->longText('item_tags')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();

@@ -72,7 +72,6 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getEndUser', 'SuperAdmin\SuperController@getEndUser')->middleware('api.superAdmin')->name('getEndUser');
 
 
-
     ////// catering profile managment
     Route::post('/addprofile', 'Catering\CateringProfileController@addprofile')->middleware('api.cateringAdmin')->name('addprofile');
     Route::post('/editprofile', 'Catering\CateringProfileController@editprofile')->middleware('api.cateringAdmin')->name('contactresdelete');
