@@ -114,3 +114,7 @@ Route::get('/getAllRestaurant', 'Restaurant\GlobalRestaurantsController@getAllRe
 Route::post('/getSingleMenu', 'Restaurant\GlobalRestaurantsController@getSingleMenu')->name('getSingleMenu');
 Route::get('/getAllMenu', 'Restaurant\GlobalRestaurantsController@getAllMenu')->name('getAllMenu');
 Route::post('/idbasedfood', 'Restaurant\GlobalRestaurantsController@idbasedfood')->name('idbasedfood');
+
+
+///food orders
+Route::post('/newOrder', 'MobileApi\UserApp\AndroidApplicationController@newOrder')->name('newOrder');

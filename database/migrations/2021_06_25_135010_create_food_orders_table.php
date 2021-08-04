@@ -20,6 +20,8 @@ class CreateFoodOrdersTable extends Migration
             $table->string('order_address')->nullable();
             $table->string('order_id')->nullable();
             $table->string('restaurant_id')->nullable();
+            $table->double('restaurant_latitude')->nullable();
+            $table->string('restaurant_longitude')->nullable();
             $table->string('food_array')->nullable();
             $table->string('payment_mode')->nullable();
             $table->string('payment_status')->nullable();
