@@ -12,7 +12,7 @@ class AndroidApplicationController extends Controller
 {
     public function newOrder(Request $request)
     {
-        $serializedArr = serialize($request->food_array);
+
         $order =  new FoodOrder();
         $order->order_name = $request->order_name;
         $order->order_contact = $request->order_contact;
@@ -21,9 +21,9 @@ class AndroidApplicationController extends Controller
         $order->order_longitude = $request->order_longitude;
         $order->order_id = $request->order_id;
         $order->restaurant_id = $request->restaurant_id;
-//        $order->restaurant_latitude = $request->restaurant_latitude;
-//        $order->restaurant_longitude = $request->restaurant_longitude;
-        $order->food_array = $serializedArr;
+        $order->restaurant_latitude = $request->restaurant_latitude;
+        $order->restaurant_longitude = $request->restaurant_longitude;
+        $order->food_array = $request->food_array;
         $order->payment_mode = $request->payment_mode;
         $order->payment_status = $request->payment_status;
         $order->rider_status = 'searching';
