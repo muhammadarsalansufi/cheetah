@@ -123,4 +123,4 @@ Route::post('/newOrder', 'MobileApi\UserApp\AndroidApplicationController@newOrde
 
 
 ///rider api
-Route::post('/searchOrders', 'MobileApi\RiderApp\AndroidApplicationController@searchOrders')->name('searchOrders');
+Route::get('/searchOrders', 'MobileApi\RiderApp\AndroidApplicationController@searchOrders')->name('searchOrders');
