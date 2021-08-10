@@ -118,3 +118,9 @@ Route::post('/idbasedfood', 'Restaurant\GlobalRestaurantsController@idbasedfood'
 
 ///food orders
 Route::post('/newOrder', 'MobileApi\UserApp\AndroidApplicationController@newOrder')->name('newOrder');
+
+
+
+
+///rider api
+Route::post('/searchOrders', 'MobileApi\RiderApp\AndroidApplicationController@searchOrders')->name('searchOrders');
