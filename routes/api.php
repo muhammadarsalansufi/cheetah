@@ -123,4 +123,12 @@ Route::post('/newOrder', 'MobileApi\UserApp\AndroidApplicationController@newOrde
 
 
 ///rider api
-Route::get('/searchOrders', 'MobileApi\RiderApp\AndroidApplicationController@searchOrders')->name('searchOrders');
+Route::post('/searchOrders', 'MobileApi\RiderApp\AndroidApplicationController@searchOrders')->name('searchOrders');
+Route::post('/acceptOrder', 'MobileApi\RiderApp\AndroidApplicationController@acceptOrder')->name('acceptOrder');
+Route::post('/declineOrder', 'MobileApi\RiderApp\AndroidApplicationController@declineOrder')->name('declineOrder');
+Route::post('/cancleOrder', 'MobileApi\RiderApp\AndroidApplicationController@cancleOrder')->name('cancleOrder');
+Route::get('/ordersHistory', 'MobileApi\RiderApp\AndroidApplicationController@ordersHistory')->name('ordersHistory');
+Route::get('/pendingOrders', 'MobileApi\RiderApp\AndroidApplicationController@pendingOrders')->name('pendingOrders');
+Route::get('/editRiderProfile', 'MobileApi\RiderApp\AndroidApplicationController@editRiderProfile')->name('editRiderProfile');
+Route::get('/rejectedOrderList', 'MobileApi\RiderApp\AndroidApplicationController@rejectedOrderList')->name('rejectedOrderList');
+
