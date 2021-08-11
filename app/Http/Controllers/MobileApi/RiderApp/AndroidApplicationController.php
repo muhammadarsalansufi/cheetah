@@ -13,10 +13,11 @@ class AndroidApplicationController extends Controller
 {
     public function searchOrders()
     {
-        $orders = FoodOrder::where('rider_status','=','searching')->where('rider_id','=','searching')->first();
+        $orders = FoodOrder::where('rider_status','=','searching')->where('rider_id','=','searching')->get();
 
         if(count($orders) > 0)
         {
+            $orders = FoodOrder::where('rider_status','=','searching')->where('rider_id','=','searching')->first();
             $message1 = [
                 "status" => "True",
                 "data" => $orders
