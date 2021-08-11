@@ -109,7 +109,7 @@ class AndroidApplicationController extends Controller
     {
         $id =auth()->user()->id;
         $orders = FoodOrder::where('id','=',$id)->where('delivery_status','=','pending')->get();
-        if($orders > 0)
+        if(count($orders) > 0)
         {
             $message1 = [
                 "status" => "True",
