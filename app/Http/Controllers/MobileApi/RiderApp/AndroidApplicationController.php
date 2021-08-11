@@ -15,7 +15,7 @@ class AndroidApplicationController extends Controller
     {
         $orders = FoodOrder::where('rider_status','=','searching')->where('rider_id','=','searching')->first();
 
-        if($orders > 0)
+        if(count($orders) > 0)
         {
             $message1 = [
                 "status" => "True",
@@ -37,7 +37,7 @@ class AndroidApplicationController extends Controller
             'rider_status'=>'founded',
             'rider_id'=>$request->rider_id
         ]);
-        if($orders > 0)
+        if(count($orders) > 0)
         {
             $message1 = [
                 "status" => "True",
@@ -67,7 +67,7 @@ class AndroidApplicationController extends Controller
             'rider_status'=>'searching',
             'rider_id'=>'searching'
         ]);
-        if($orders > 0)
+        if(count($orders) > 0)
         {
             $message1 = [
                 "status" => "True",
@@ -88,7 +88,7 @@ class AndroidApplicationController extends Controller
     {
         $id =auth()->user()->id;
         $orders = FoodOrder::where('id','=',$id)->where('delivery_status','=','completed')->get();
-        if($orders > 0)
+        if(count($orders) > 0)
         {
             $message1 = [
                 "status" => "True",
