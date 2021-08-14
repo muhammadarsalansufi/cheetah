@@ -68,7 +68,7 @@ class AndroidApplicationController extends Controller
             'rider_status'=>'searching',
             'rider_id'=>'searching'
         ]);
-        if(count($orders) > 0)
+        if($orders > 0)
         {
             $message1 = [
                 "status" => "True",
@@ -88,7 +88,7 @@ class AndroidApplicationController extends Controller
     public function ordersHistory()
     {
         $id =auth()->user()->id;
-        $orders = FoodOrder::where('id','=',$id)->where('delivery_status','=','completed')->get();
+        $orders = FoodOrder::where('rider_id','=',$id)->where('delivery_status','=','completed')->get();
         if(count($orders) > 0)
         {
             $message1 = [
@@ -109,7 +109,7 @@ class AndroidApplicationController extends Controller
     public function pendingOrders()
     {
         $id =auth()->user()->id;
-        $orders = FoodOrder::where('id','=',$id)->where('delivery_status','=','pending')->get();
+        $orders = FoodOrder::where('rider_id','=',$id)->where('delivery_status','=','pending')->get();
         if(count($orders) > 0)
         {
             $message1 = [

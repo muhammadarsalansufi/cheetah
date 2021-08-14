@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
 Route::middleware(['cors', 'json.response', 'auth:api'])->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -129,6 +133,6 @@ Route::post('/declineOrder', 'MobileApi\RiderApp\AndroidApplicationController@de
 Route::post('/cancleOrder', 'MobileApi\RiderApp\AndroidApplicationController@cancleOrder')->name('cancleOrder');
 Route::get('/ordersHistory', 'MobileApi\RiderApp\AndroidApplicationController@ordersHistory')->name('ordersHistory');
 Route::get('/pendingOrders', 'MobileApi\RiderApp\AndroidApplicationController@pendingOrders')->name('pendingOrders');
-Route::get('/editRiderProfile', 'MobileApi\RiderApp\AndroidApplicationController@editRiderProfile')->name('editRiderProfile');
+Route::post('/editRiderProfile', 'MobileApi\RiderApp\AndroidApplicationController@editRiderProfile')->name('editRiderProfile');
 Route::get('/rejectedOrderList', 'MobileApi\RiderApp\AndroidApplicationController@rejectedOrderList')->name('rejectedOrderList');
 
