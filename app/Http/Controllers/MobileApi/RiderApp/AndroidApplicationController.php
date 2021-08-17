@@ -61,6 +61,10 @@ class AndroidApplicationController extends Controller
         $order->order_id = $request->order_id;
         $order->order_id = $request->order_id;
         $order->save();
+        $message1 = [
+            "status" => "True"
+        ];
+        return response($message1, 200);
     }
     public function cancleOrder(Request $request)
     {
