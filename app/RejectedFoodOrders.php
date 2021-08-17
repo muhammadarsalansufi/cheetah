@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class RejectedFoodOrders extends Model
 {
-    protected $table = 'rejectedFoodorder';
+    protected $table = 'rejected_foodorder';
 
 }
