@@ -89,9 +89,9 @@ class AndroidApplicationController extends Controller
         return response($message1, 200);
 
     }
-    public function ordersHistory()
+    public function ordersHistory(Request $request)
     {
-        $id =auth()->user()->id;
+        $id =$request->rider_id;
         $orders = FoodOrder::where('rider_id','=',$id)->where('delivery_status','=','completed')->get();
         if(count($orders) > 0)
         {
