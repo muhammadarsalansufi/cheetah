@@ -110,9 +110,9 @@ class AndroidApplicationController extends Controller
         return response($message1, 200);
 
     }
-    public function pendingOrders()
+    public function pendingOrders(Request $request)
     {
-        $id =auth()->user()->id;
+        $id =$request->rider_id;
         $orders = FoodOrder::where('rider_id','=',$id)->where('delivery_status','=','pending')->get();
         if(count($orders) > 0)
         {
