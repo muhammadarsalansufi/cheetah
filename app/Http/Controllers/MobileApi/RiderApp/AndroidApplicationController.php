@@ -38,7 +38,7 @@ class AndroidApplicationController extends Controller
             'rider_status'=>'founded',
             'rider_id'=>$request->rider_id
         ]);
-        if(count($orders) > 0)
+        if($orders == 1)
         {
             $message1 = [
                 "status" => "True",
