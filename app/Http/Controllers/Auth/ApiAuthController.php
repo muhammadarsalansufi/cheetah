@@ -138,14 +138,14 @@ class ApiAuthController extends Controller
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-                $response = ['message'=>'True','token' => $token,'record'=>$user];
+                $response = ['message'=>'True','token' => $token,'user'=>$user];
                 return response($response, 200);
             } else {
-                $response = ["message" => "Password mismatch",'record'=>$user];
+                $response = ["message" => "Password mismatch",'user'=>$user];
                 return response($response, 200);
             }
         } else {
-            $response = ["message" =>'User does not exist','record'=>$user];
+            $response = ["message" =>'User does not exist','user'=>$user];
             return response($response, 200);
         }
     }
