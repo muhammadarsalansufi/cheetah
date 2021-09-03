@@ -99,8 +99,8 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getFood', 'Restaurant\ReastaurantProfileController@getFood')->middleware('api.restaurantAdmin')->name('getFood');
 
 
-    Route::get('/userActiveOrder', 'MobileApi\RiderApp\AndroidApplicationController@userActiveOrder')->middleware('api.restaurantAdmin')->name('userActiveOrder');
-    Route::get('/userCompletedOrders', 'MobileApi\RiderApp\AndroidApplicationController@userCompletedOrders')->middleware('api.restaurantAdmin')->name('userCompletedOrders');
+    Route::get('/userActiveOrder', 'MobileApi\RiderApp\AndroidApplicationController@userActiveOrder')->middleware('api.user')->name('userActiveOrder');
+    Route::get('/userCompletedOrders', 'MobileApi\RiderApp\AndroidApplicationController@userCompletedOrders')->middleware('api.user')->name('userCompletedOrders');
 
 
 });

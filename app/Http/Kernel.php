@@ -58,6 +58,7 @@ class Kernel extends HttpKernel
         'api.superAdmin' => \App\Http\Middleware\SuperAdminAuth::class,
         'api.cateringAdmin' => \App\Http\Middleware\CateringAdmin::class,
         'api.restaurantAdmin' => \App\Http\Middleware\RestaurantAdmin::class,
+        'api.user' => \App\Http\Middleware\userAdmin::class,
         'cors' => \App\Http\Middleware\Cors::class,
         'json.response' => \App\Http\Middleware\ForceJsonResponse::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
