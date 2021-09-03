@@ -15,7 +15,7 @@ class userAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::guard('api')->check() && $request->user()->type == 4) {
+        if (Auth::guard('api')->check() && $request->user()->type == 5) {
             return $next($request);
         } else {
             $message = ["message" => "Permission Denied"];
