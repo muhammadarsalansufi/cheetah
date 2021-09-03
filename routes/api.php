@@ -27,7 +27,7 @@ Route::group(['middleware' => ['cors', 'json.response']], function () {
     // public routes
     Route::post('/login', 'Auth\ApiAuthController@login')->name('login.api');
     Route::post('/register','Auth\ApiAuthController@register')->name('register.api');
-    Route::post('/logout', 'Auth\ApiAuthController@logou t')->name('logout.api');
+    Route::post('/logout', 'Auth\ApiAuthController@logout')->name('logout.api');
 });
 
 Route::middleware('auth:api')->group(function () {
@@ -99,9 +99,13 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getFood', 'Restaurant\ReastaurantProfileController@getFood')->middleware('api.restaurantAdmin')->name('getFood');
 
 
+    Route::get('/userActiveOrder', 'MobileApi\RiderApp\AndroidApplicationController@userActiveOrder')->middleware('api.restaurantAdmin')->name('userActiveOrder');
+    Route::get('/userCompletedOrders', 'MobileApi\RiderApp\AndroidApplicationController@userCompletedOrders')->middleware('api.restaurantAdmin')->name('userCompletedOrders');
+
+
 });
 
-///web global routes
+//  web global routes
 Route::get('/getimageSliderWeb', 'WebContentController@getimageSliderWeb')->name('getimageSliderWeb');
 Route::get('/getContactWeb', 'WebContentController@getContactWeb')->name('getContactWeb');
 Route::get('/getSocialLinksWeb', 'WebContentController@getSocialLinksWeb')->name('getSocialLinksWeb');

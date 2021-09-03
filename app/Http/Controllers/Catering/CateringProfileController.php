@@ -268,7 +268,6 @@ class CateringProfileController extends Controller
             "Testimonials" => $cateringtesti,
             "Services" => $cateriservices];
         return response($message, 200);
-
     }
     public function getOrders()
     {

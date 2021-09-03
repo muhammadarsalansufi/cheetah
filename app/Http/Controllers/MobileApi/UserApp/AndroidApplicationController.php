@@ -47,5 +47,21 @@ class AndroidApplicationController extends Controller
         return response($message1, 200);
 
     }
+    public function userActiveOrder()
+    {
+        return response(["status" => "True", "Order_detail" =>  FoodOrder::where('order_id','=',$user_id = auth()->user()->id)->where('delivery_status','=','pending')->get()], 200);
+    }
+    public function userCompletedOrders()
+    {
+        $user_id = auth()->user()->id;
+        $order = FoodOrder::where('order_id','=',$user_id)->where('delivery_status','=','completed')->get();
+        $message1 = [
+            "status" => "True",
+            "Order_detail" => $order
+        ];
+
+        return response($message1, 200);
+
+    }
 
 }
