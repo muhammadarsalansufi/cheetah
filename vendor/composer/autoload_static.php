@@ -623,6 +623,7 @@ class ComposerStaticInit106ba3d0f547b235e8ae8dd2825db323
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Middleware\\userAdmin' => __DIR__ . '/../..' . '/app/Http/Middleware/userAdmin.php',
         'App\\ImageSlider' => __DIR__ . '/../..' . '/app/ImageSlider.php',
         'App\\KitchenAdmin' => __DIR__ . '/../..' . '/app/KitchenAdmin.php',
         'App\\MenuCategories' => __DIR__ . '/../..' . '/app/MenuCategories.php',
