@@ -102,6 +102,9 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/userActiveOrder', 'MobileApi\UserApp\AndroidApplicationController@userActiveOrder')->middleware('api.user')->name('userActiveOrder');
     Route::get('/userCompletedOrders', 'MobileApi\UserApp\AndroidApplicationController@userCompletedOrders')->middleware('api.user')->name('userCompletedOrders');
 
+    Route::get('/userActiveOrder', 'MobileApi\UserApp\AndroidApplicationController@userActiveOrder')->middleware('api.user')->name('userActiveOrder');
+    Route::get('/userCompletedOrders', 'MobileApi\UserApp\AndroidApplicationController@userCompletedOrders')->middleware('api.user')->name('userCompletedOrders');
+    Route::post('/food_details', 'MobileApi\UserApp\AndroidApplicationController@food_details')->middleware('api.user')->name('food_details');
 
 });
 

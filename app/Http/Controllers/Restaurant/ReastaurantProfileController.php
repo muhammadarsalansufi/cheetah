@@ -232,16 +232,16 @@ class ReastaurantProfileController extends Controller
     {
         $id = $request->id;
         $product_image = "not fount";
-        if($file = $request->hasFile('product_image')) {
-            $file = $request->file('product_image') ;
-            $fileName1 = $file->getClientOriginalName() ;
-            $product_image = 'i'.$id.'o'.$fileName1;
-            $destinationPath = public_path().'/images/' ;
-            $file->move($destinationPath,$product_image);
-            $newCategory= URL::asset('images').'/'.$product_image ;
+        if ($file = $request->hasFile('product_image')) {
+            $file = $request->file('product_image');
+            $fileName1 = $file->getClientOriginalName();
+            $product_image = 'i' . $id . 'o' . $fileName1;
+            $destinationPath = public_path() . '/images/';
+            $file->move($destinationPath, $product_image);
+            $newCategory = URL::asset('images') . '/' . $product_image;
         }
-        $item = RestaurantProduct::where('id','=',$id)->update(
-            [   "status" => $request->status,
+        $item = RestaurantProduct::where('id', '=', $id)->update(
+            ["status" => $request->status,
                 "product_name" => $request->product_name,
                 "product_price" => $request->product_price,
                 "product_image" => $product_image,
@@ -249,8 +249,12 @@ class ReastaurantProfileController extends Controller
                 "offer" => $request->offer
             ]
         );
-        $message = ["status" => "True","record" => $item];
+        $message = ["status" => "True", "record" => $item];
         return response($message, 200);
+    }
+    public function addingredents(Request $request)
+    {
+
     }
 
 }

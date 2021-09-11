@@ -6,6 +6,7 @@ namespace App\Http\Controllers\MobileApi\UserApp;
 
 use App\FoodOrder;
 use App\Http\Controllers\Controller;
+use App\Ingridents;
 use Illuminate\Http\Request;
 
 class AndroidApplicationController extends Controller
@@ -62,6 +63,16 @@ class AndroidApplicationController extends Controller
 
         return response($message1, 200);
 
+    }
+    public function food_details(Request $request)
+    {
+        $message1 = [
+            "status" => "True",
+            "food_id" => $request->food_id,
+            "Order_detail" => Ingridents::select('food_array')->first()
+        ];
+
+        return response($message1, 200);
     }
 
 }
