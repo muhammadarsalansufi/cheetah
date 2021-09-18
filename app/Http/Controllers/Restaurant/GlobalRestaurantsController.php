@@ -48,6 +48,7 @@ class GlobalRestaurantsController extends Controller
             {
                 $message[] =
                     [
+                        "Reatraurant_id" => $id,
                         "CategoryName" => $items,
                         "Content" => $menus
                     ];
