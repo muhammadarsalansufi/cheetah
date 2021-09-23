@@ -21,6 +21,7 @@ class AndroidApplicationController extends Controller
         $order->order_latitude = $request->order_latitude;
         $order->order_longitude = $request->order_longitude;
         $order->order_id = $request->order_id;
+        $order->order_tid = $request->order_tid;
         $order->restaurant_id = $request->restaurant_id;
 //        $order->restaurant_latitude = $request->restaurant_latitude;
 //        $order->restaurant_longitude = $request->restaurant_longitude;
@@ -37,8 +38,8 @@ class AndroidApplicationController extends Controller
         $order->kitchen_status = 'searching';
         $order->status = 'order_confirm';
         $order->order_zip = $request->order_zip;
-        $order->rider_latitude = 'searching';
-        $order->rider_longitude = 'searching';
+        $order->rider_latitude =$request->rider_latitude;;
+        $order->rider_longitude = $request->rider_longitude;;
         $order->save();
         $message1 = [
             "status" => "True",

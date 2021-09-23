@@ -16,6 +16,7 @@ class CreateFoodOrdersTable extends Migration
         Schema::create('food_orders', function (Blueprint $table) {
             $table->id();
             $table->string('order_name')->nullable();
+            $table->string('order_tid')->nullable();
             $table->string('order_contact')->nullable();
             $table->string('order_address')->nullable();
             $table->string('order_id')->nullable();
