@@ -42,6 +42,7 @@ class GlobalRestaurantsController extends Controller
         $category = MenuCategories::all();
         foreach($category as $item)
         {
+            $items_id = $item->id;
             $items = $item->item_name;
             $items_image = $item->item_image;
             $menus = RestaurantProduct::select('id','product_name','product_price','product_image','offer','quantity')->where('user_id','=',$user_id)->where('product_type','=',$items)->get();
@@ -51,6 +52,7 @@ class GlobalRestaurantsController extends Controller
                     [
                         "Reatraurant_id" => $id,
                         "CategoryName" => $items,
+                        "CategoryId" => $items_id,
                         "CategoryImage" => $items_image,
                         "Content" => $menus
                     ];
