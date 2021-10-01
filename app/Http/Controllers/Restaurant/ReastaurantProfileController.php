@@ -260,7 +260,7 @@ class ReastaurantProfileController extends Controller
     public function myrestaurantOrders()
     {
 //       $id =  auth()->user()->id;
-       $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->get();
+       $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->first();
        $data = json_decode($orders);
         $message = ["status" => "True", "record" => $data];
         return response($message, 200);
