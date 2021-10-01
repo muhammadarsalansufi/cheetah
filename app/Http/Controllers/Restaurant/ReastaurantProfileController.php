@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Restaurant;
 
 use App\AccountDetails;
 use App\ContactUs;
+use App\FoodOrder;
 use App\Http\Controllers\Controller;
 use App\MenuCategories;
 use App\RestaurantFeatured;
@@ -255,6 +256,18 @@ class ReastaurantProfileController extends Controller
     public function addingredents(Request $request)
     {
 
+    }
+    public function myrestaurantOrders()
+    {
+       $id =  auth()->user()->id;
+       $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->get();
+       $data = json_decode($orders);
+        $message = ["status" => "True", "record" => $data];
+        return response($message, 200);
+//       foreach($data as $dataorder)
+//       {
+//
+//       }
     }
 
 }

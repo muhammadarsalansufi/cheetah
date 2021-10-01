@@ -92,6 +92,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/addprofileRestaurant', 'Restaurant\ReastaurantProfileController@addprofile')->middleware('api.restaurantAdmin')->name('addprofileRestaurant');
     Route::post('/addRestaurantPromo', 'Restaurant\ReastaurantProfileController@addRestaurantPromo')->middleware('api.restaurantAdmin')->name('addRestaurantPromo');
     Route::get('/getSingleRestaurantProfile', 'Restaurant\ReastaurantProfileController@getSingleRestaurantProfile')->middleware('api.restaurantAdmin')->name('getSingleRestaurantProfile');
+    Route::get('/myrestaurantOrders', 'Restaurant\ReastaurantProfileController@myrestaurantOrders')->name('myrestaurantOrders');
 
     Route::post('/addFood', 'Restaurant\ReastaurantProfileController@addFood')->middleware('api.restaurantAdmin')->name('addFood');
     Route::post('/deleteFood', 'Restaurant\ReastaurantProfileController@deleteFood')->middleware('api.restaurantAdmin')->name('deleteFood');
