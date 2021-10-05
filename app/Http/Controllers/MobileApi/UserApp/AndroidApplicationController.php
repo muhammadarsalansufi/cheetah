@@ -25,7 +25,7 @@ class AndroidApplicationController extends Controller
         $order->restaurant_id = $request->restaurant_id;
 //        $order->restaurant_latitude = $request->restaurant_latitude;
 //        $order->restaurant_longitude = $request->restaurant_longitude;
-        $order->food_array = $request->food_array;
+        $order->food_array = serialize($request->food_array);
         $order->payment_mode = $request->payment_mode;
         $order->payment_status = $request->payment_status;
         $order->rider_status = 'searching';
