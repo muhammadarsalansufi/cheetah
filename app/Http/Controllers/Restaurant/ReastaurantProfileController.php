@@ -262,7 +262,7 @@ class ReastaurantProfileController extends Controller
 //       $id =  auth()->user()->id;
        $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->first();
        $data = json_decode($orders);
-        $message = ["status" => "True", "record" => unserialize($data)];
+        $message = ["status" => "True", "record" => unserialize($orders)];
         return response($message, 200);
 //       foreach($data as $dataorder)
 //       {
