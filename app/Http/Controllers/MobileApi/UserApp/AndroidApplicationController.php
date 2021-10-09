@@ -41,12 +41,24 @@ class AndroidApplicationController extends Controller
         $order->rider_latitude =$request->rider_latitude;;
         $order->rider_longitude = $request->rider_longitude;;
         $order->save();
+        $code =200;
         $message1 = [
             "status" => "True",
             "Order_detail" => $order
-        ];
 
-        return response($message1, 200);
+        ];
+        if($request->food_array == null)
+        {
+            $code =401;
+            $message1 = [
+                "status" => "False",
+                "Order_detail" => $order
+
+            ];
+
+        }
+
+        return response($message1, $code);
 
     }
     public function userActiveOrder()
