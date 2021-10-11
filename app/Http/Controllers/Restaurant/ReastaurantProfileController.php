@@ -259,14 +259,14 @@ class ReastaurantProfileController extends Controller
     }
     public function myrestaurantOrders()
     {
-//       $id =  auth()->user()->id;
+    $id =  auth()->user()->id;
        $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->first();
        $data = json_decode($orders);
         $order = 'no order found';
 
         foreach ($data as $single)
         {
-            if($single->restaurantId == 6)
+            if($single->restaurantId == $id)
             {
                 $order = $single;
             }
