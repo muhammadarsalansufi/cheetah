@@ -268,7 +268,7 @@ class ReastaurantProfileController extends Controller
         {
             if($single->restaurantId == 6)
             {
-                $order = $single->all();
+                $order = $single->get();
             }
 
         }
