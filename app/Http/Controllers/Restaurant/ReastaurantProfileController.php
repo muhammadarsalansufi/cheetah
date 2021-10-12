@@ -273,7 +273,7 @@ class ReastaurantProfileController extends Controller
             }
 
         }
-        $message = ["status" => "True",'orders' => $order];
+        $message = ["status" => "True",'orders' => $order,'detail'=>$orders];
         return response($message, 200);
 //       foreach($data as $dataorder)
 //       {
