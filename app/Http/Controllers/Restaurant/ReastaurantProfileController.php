@@ -273,7 +273,7 @@ class ReastaurantProfileController extends Controller
             }
 
         }
-        $message = ["status" => "True",'orders' => $order,'detail'=>$orders];
+        $message = ["status" => "True",'orders' => $order,'detail'=>$orders = FoodOrder::where('delivery_status','=','pending')->first()];
         return response($message, 200);
 //       foreach($data as $dataorder)
 //       {
