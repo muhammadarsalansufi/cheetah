@@ -263,7 +263,7 @@ class ReastaurantProfileController extends Controller
        $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->first();
        $reid = Resturants::where('user_id','=',$id)->pluck('id')->first();
        $data = json_decode($orders);
-        $order = 'no order found';
+        $order = null;
         $status = 'False';
 
         foreach ($data as $single)
