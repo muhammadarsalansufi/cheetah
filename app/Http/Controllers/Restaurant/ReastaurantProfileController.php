@@ -264,16 +264,18 @@ class ReastaurantProfileController extends Controller
        $reid = Resturants::where('user_id','=',$id)->pluck('id')->first();
        $data = json_decode($orders);
         $order = 'no order found';
+        $status = 'False';
 
         foreach ($data as $single)
         {
             if($single->restaurantId == $reid)
             {
                 $order = $single;
+                $status = 'True';
             }
 
         }
-        $message = ["status" => "True",'orders' => $order,'detail'=>$orders = FoodOrder::where('delivery_status','=','pending')->first()];
+        $message = ["status" => $status,'orders' => $order,'detail'=>$orders = FoodOrder::where('delivery_status','=','pending')->first()];
         return response($message, 200);
 //       foreach($data as $dataorder)
 //       {
