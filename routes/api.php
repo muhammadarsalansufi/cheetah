@@ -74,7 +74,7 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/getservicescategory', 'SuperAdmin\SuperController@getservicescategory')->middleware('api.superAdmin')->name('getservicescategory');
     Route::post('/updateservicescategory', 'SuperAdmin\SuperController@updateservicescategory')->middleware('api.superAdmin')->name('updateservicescategory');
     Route::get('/getEndUser', 'SuperAdmin\SuperController@getEndUser')->middleware('api.superAdmin')->name('getEndUser');
-
+    ///
 
     ////// catering profile managment
     Route::post('/addprofile', 'Catering\CateringProfileController@addprofile')->middleware('api.cateringAdmin')->name('addprofile');
@@ -99,6 +99,7 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/updateFood', 'Restaurant\ReastaurantProfileController@updateFood')->middleware('api.restaurantAdmin')->name('updateFood');
     Route::get('/getFood', 'Restaurant\ReastaurantProfileController@getFood')->middleware('api.restaurantAdmin')->name('getFood');
 
+    Route::post('/acceptorderRestaurant', 'Restaurant\ReastaurantProfileController@acceptorderRestaurant')->middleware('api.restaurantAdmin')->name('acceptorderRestaurant');
 
     Route::get('/userActiveOrder', 'MobileApi\UserApp\AndroidApplicationController@userActiveOrder')->middleware('api.user')->name('userActiveOrder');
     Route::get('/userCompletedOrders', 'MobileApi\UserApp\AndroidApplicationController@userCompletedOrders')->middleware('api.user')->name('userCompletedOrders');

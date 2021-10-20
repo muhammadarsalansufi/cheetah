@@ -259,13 +259,17 @@ class ReastaurantProfileController extends Controller
     }
     public function myrestaurantOrders()
     {
-    $id =  auth()->user()->id;
-       $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->first();
-       $reid = Resturants::where('user_id','=',$id)->pluck('id')->first();
-       $data = json_decode($orders);
+        $id =  auth()->user()->id;
+        $allorders = FoodOrder::where('delivery_status','=','pending')->get();
+//        foreach ($allorders as $oneorder)
+//        {
+//
+//        }
+        $orders = FoodOrder::where('delivery_status','=','pending')->pluck('food_array')->first();
+        $reid = Resturants::where('user_id','=',$id)->pluck('id')->first();
+        $data = json_decode($orders);
         $order = null;
         $status = 'False';
-
         foreach ($data as $single)
         {
             if($single->restaurantId == $reid)
@@ -273,14 +277,17 @@ class ReastaurantProfileController extends Controller
                 $order = $single;
                 $status = 'True';
             }
-
         }
         $message = ["status" => $status,'orders' => $order,'detail'=>$orders = FoodOrder::where('delivery_status','=','pending')->first()];
         return response($message, 200);
-//       foreach($data as $dataorder)
-//       {
-//
-//       }
+    }
+    public function  acceptorderRestaurant(Request $request)
+    {
+        $orders = FoodOrder::where('order_tid','=',$request->order_tid)->update([
+            'delivery_status'=>$request->status
+        ]);
+        $message = ["status" => "True"];
+        return response($message, 200);
     }
 
 }
