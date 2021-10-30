@@ -5,6 +5,7 @@ namespace App\Http\Controllers\MobileApi\RiderApp;
 
 
 use App\FoodOrder;
+use App\User;
 use App\Http\Controllers\Controller;
 use App\RejectedFoodOrders;
 use Illuminate\Http\Request;
@@ -136,6 +137,23 @@ class AndroidApplicationController extends Controller
     }
     public function rejectedOrderList()
     {
+
+    }
+    public function updatepassword(Request $request)
+    {
+        $email =  $request->email;
+        $record = User::where('email','=',$email)->get();
+        if($record > 0)
+        {
+            $message1 = ["status" => "True"];
+
+        }
+        else 
+        {
+            $message1 = ["status" => "False"];
+        }
+
+        return response($message1, 200);
 
     }
 
