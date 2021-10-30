@@ -9,6 +9,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\RejectedFoodOrders;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AndroidApplicationController extends Controller
 {
@@ -139,11 +140,45 @@ class AndroidApplicationController extends Controller
     {
 
     }
-    public function updatepassword(Request $request)
+    public function updatepasswordlink(Request $request)
     {
         $email =  $request->email;
         $record = User::where('email','=',$email)->get();
         if($record > 0)
+        {
+            $message1 = ["status" => "True"];
+
+        }
+        else 
+        {
+            $message1 = ["status" => "False"];
+        }
+
+        return response($message1, 200);
+
+    }
+    public function verifycodepassword(Request $request)
+    {
+        $code  =  $request->code;
+        if($code == '1234')
+        {
+            $message1 = ["status" => "True"];
+
+        }
+        else 
+        {
+            $message1 = ["status" => "False"];
+        }
+
+        return response($message1, 200);
+        
+    }
+    public function updateverfypassword(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->new_password;
+        $record = User::where('email','=',$email)->update(['password'=>Hash::make($password]);
+        if($record == 1)
         {
             $message1 = ["status" => "True"];
 

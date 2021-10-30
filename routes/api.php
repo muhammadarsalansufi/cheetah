@@ -108,8 +108,12 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/userCompletedOrders', 'MobileApi\UserApp\AndroidApplicationController@userCompletedOrders')->middleware('api.user')->name('userCompletedOrders');
     Route::post('/food_details', 'MobileApi\UserApp\AndroidApplicationController@food_details')->middleware('api.user')->name('food_details');
     Route::get('/myrestaurantOrders', 'Restaurant\ReastaurantProfileController@myrestaurantOrders')->name('myrestaurantOrders');
-});
 
+   
+});
+Route::post('/updateverfypassword', 'MobileApi\UserApp\AndroidApplicationController@food_details')->name('updateverfypassword');
+Route::post('/verifycodepassword', 'MobileApi\UserApp\AndroidApplicationController@food_details')->name('verifycodepassword');
+Route::post('/updatepasswordlink', 'MobileApi\UserApp\AndroidApplicationController@food_details')->name('updatepasswordlink');
 //  web global routes
 Route::get('/getimageSliderWeb', 'WebContentController@getimageSliderWeb')->name('getimageSliderWeb');
 Route::get('/getContactWeb', 'WebContentController@getContactWeb')->name('getContactWeb');
