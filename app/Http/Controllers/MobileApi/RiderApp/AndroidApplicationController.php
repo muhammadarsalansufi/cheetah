@@ -177,7 +177,7 @@ class AndroidApplicationController extends Controller
     {
         $email = $request->email;
         $password = $request->new_password;
-        $record = User::where('email','=',$email)->update(['password'=>Hash::make($password]);
+        $record = User::where('email','=',$email)->update(['password'=>Hash::make($password)]);
         if($record == 1)
         {
             $message1 = ["status" => "True"];
