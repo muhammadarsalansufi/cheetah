@@ -144,7 +144,7 @@ class AndroidApplicationController extends Controller
     {
         $email =  $request->email;
         $record = User::where('email','=',$email)->get();
-        if($record > 0)
+        if(count($record) > 0)
         {
             $message1 = ["status" => "True"];
 
