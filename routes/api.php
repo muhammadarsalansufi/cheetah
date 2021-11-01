@@ -111,9 +111,9 @@ Route::middleware('auth:api')->group(function () {
 
    
 });
-Route::post('/updateverfypassword', 'MobileApi\UserApp\AndroidApplicationController@food_details')->name('updateverfypassword');
-Route::post('/verifycodepassword', 'MobileApi\UserApp\AndroidApplicationController@food_details')->name('verifycodepassword');
-Route::post('/updatepasswordlink', 'MobileApi\UserApp\AndroidApplicationController@food_details')->name('updatepasswordlink');
+Route::post('/updateverfypassword', 'MobileApi\UserApp\AndroidApplicationController@updateverfypassword')->name('updateverfypassword');
+Route::post('/verifycodepassword', 'MobileApi\UserApp\AndroidApplicationController@verifycodepassword')->name('verifycodepassword');
+Route::post('/updatepasswordlink', 'MobileApi\UserApp\AndroidApplicationController@updatepasswordlink')->name('updatepasswordlink');
 //  web global routes
 Route::get('/getimageSliderWeb', 'WebContentController@getimageSliderWeb')->name('getimageSliderWeb');
 Route::get('/getContactWeb', 'WebContentController@getContactWeb')->name('getContactWeb');
