@@ -8,6 +8,7 @@ use App\FoodOrder;
 use App\Http\Controllers\Controller;
 use App\Ingridents;
 use App\WalletTranscation;
+use App\Wallet;
 use Illuminate\Http\Request;
 
 class WalletController extends Controller
