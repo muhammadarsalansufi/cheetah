@@ -109,10 +109,10 @@ Route::middleware('auth:api')->group(function () {
     Route::post('/food_details', 'MobileApi\UserApp\AndroidApplicationController@food_details')->middleware('api.user')->name('food_details');
     Route::get('/myrestaurantOrders', 'Restaurant\ReastaurantProfileController@myrestaurantOrders')->name('myrestaurantOrders');
 //Wallet Trancetion 
-Route::get('/getAccount', 'Restaurant\ReastaurantProfileController@getAccount')->name('getAccount');
-Route::post('/sendAmount', 'Restaurant\ReastaurantProfileController@sendAmount')->name('sendAmount');
-Route::get('/getSentTranscations', 'Restaurant\ReastaurantProfileController@getSentTranscations')->name('getSentTranscations');
-Route::get('/getreceivedTranscations', 'Restaurant\ReastaurantProfileController@getreceivedTranscations')->name('getreceivedTranscations');
+Route::get('/getAccount', 'MobileApi\Wallet\WalletController@getAccount')->name('getAccount');
+Route::post('/sendAmount', 'MobileApi\Wallet\WalletController@sendAmount')->name('sendAmount');
+Route::get('/getSentTranscations', 'MobileApi\Wallet\WalletController@getSentTranscations')->name('getSentTranscations');
+Route::get('/getreceivedTranscations', 'MobileApi\Wallet\WalletController@getreceivedTranscations')->name('getreceivedTranscations');
 
    
 });
