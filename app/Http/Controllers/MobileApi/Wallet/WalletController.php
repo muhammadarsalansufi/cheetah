@@ -17,7 +17,7 @@ class WalletController extends Controller
     public function getAccount()
     {
         $user_id =  auth()->user()->id;
-        $account_number  =  Wallet::where('user_id','=',$user_id)->get();
+        $account_number  =  Wallet::where('user_id','=',$user_id)->first();
         $response = ["status" =>'True','data'=>$account_number ];
         return response($response, 200);
 
