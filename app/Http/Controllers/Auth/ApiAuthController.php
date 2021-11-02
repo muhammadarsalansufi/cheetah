@@ -13,6 +13,7 @@ use App\RestuarantContent;
 use App\Resturants;
 use Illuminate\Http\Request;
 use App\User;
+use App\Wallet;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -71,6 +72,10 @@ class ApiAuthController extends Controller
             $cateringcontent->payment_status = "pending";
             $cateringcontent->status = "InActive";
             $cateringcontent->save();
+            $wallet =  new  Wallet();
+            $wallet->account_num = rand(1111111111,99999999999);
+            $wallet->user_id = $user->id;
+            $wallet->save();
 
 
         }
@@ -101,6 +106,11 @@ class ApiAuthController extends Controller
             $res->restaurant_id = $Restaurants->id;
             $res->status = "Active";
             $res->save();
+            $wallet =  new  Wallet();
+            $wallet->account_num = rand(1111111111,99999999999);
+            $wallet->user_id = $user->id;
+            $wallet->save();
+
 
         }
         if($request['category'] == 3)
@@ -112,6 +122,10 @@ class ApiAuthController extends Controller
             $enduser->phone = $request->phone;
             $enduser->mobile_id = $request->mobile_id;
             $enduser->save();
+            $wallet =  new  Wallet();
+            $wallet->account_num = rand(1111111111,99999999999);
+            $wallet->user_id = $user->id;
+            $wallet->save();
 
         }
 
