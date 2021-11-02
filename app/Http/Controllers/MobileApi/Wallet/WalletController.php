@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Ingridents;
 use App\WalletTranscation;
 use App\Wallet;
+use App\User;
 use Illuminate\Http\Request;
 
 class WalletController extends Controller
