@@ -39,6 +39,8 @@ class GlobalRestaurantsController extends Controller
     {
         $id =  $request->id;
         $user_id =  RestuarantContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->pluck('user_id')->first();;
+        $account_num =  RestuarantContent::where('id','=',$id)->where('status','=','Active')->where('admin_status','=','Approved')->pluck('account_num')->first();;
+
         $category = MenuCategories::all();
         foreach($category as $item)
         {
@@ -61,6 +63,7 @@ class GlobalRestaurantsController extends Controller
         }
         $message1 = [
             "status" => "True",
+            "account_num" => $account_num,
             "data" => $message
         ];
 
