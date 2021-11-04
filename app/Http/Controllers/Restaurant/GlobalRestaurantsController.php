@@ -53,6 +53,7 @@ class GlobalRestaurantsController extends Controller
                 $message[] =
                     [
                         "Reatraurant_id" => $id,
+                        "account_num" => $account_num,
                         "CategoryName" => $items,
                         "CategoryId" => $items_id,
                         "CategoryImage" => $items_image,
@@ -63,7 +64,6 @@ class GlobalRestaurantsController extends Controller
         }
         $message1 = [
             "status" => "True",
-            "account_num" => $account_num,
             "data" => $message
         ];
 
