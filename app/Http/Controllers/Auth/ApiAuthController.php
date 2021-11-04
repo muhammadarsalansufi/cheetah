@@ -81,6 +81,10 @@ class ApiAuthController extends Controller
         }
         if($request['category'] == 2)
         {
+            $wallet =  new  Wallet();
+            $wallet->account_num = rand(1111111111,99999999999);
+            $wallet->user_id = $user->id;
+            $wallet->save();
             $Restaurants =  new Resturants();
             $Restaurants->user_name = $request->name;
             $Restaurants->user_email = $request->email;
@@ -92,6 +96,7 @@ class ApiAuthController extends Controller
             $RestuarantContent =  new RestuarantContent();
             $RestuarantContent->user_id  = $user->id;
             $RestuarantContent->status  = "inActive";
+            $RestuarantContent->account_num =$wallet->account_num;
             $RestuarantContent->admin_status  = "pending";
             $RestuarantContent->resturant_profile_id  = $Restaurants->id;
             $RestuarantContent->save();
@@ -106,10 +111,7 @@ class ApiAuthController extends Controller
             $res->restaurant_id = $Restaurants->id;
             $res->status = "Active";
             $res->save();
-            $wallet =  new  Wallet();
-            $wallet->account_num = rand(1111111111,99999999999);
-            $wallet->user_id = $user->id;
-            $wallet->save();
+
 
 
         }
