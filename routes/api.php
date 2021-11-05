@@ -108,13 +108,14 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/userCompletedOrders', 'MobileApi\UserApp\AndroidApplicationController@userCompletedOrders')->middleware('api.user')->name('userCompletedOrders');
     Route::post('/food_details', 'MobileApi\UserApp\AndroidApplicationController@food_details')->middleware('api.user')->name('food_details');
     Route::get('/myrestaurantOrders', 'Restaurant\ReastaurantProfileController@myrestaurantOrders')->name('myrestaurantOrders');
-//Wallet Trancetion 
+//Wallet Trancetion
 Route::get('/getAccount', 'MobileApi\Wallet\WalletController@getAccount')->name('getAccount');
 Route::post('/sendAmount', 'MobileApi\Wallet\WalletController@sendAmount')->name('sendAmount');
 Route::get('/getSentTranscations', 'MobileApi\Wallet\WalletController@getSentTranscations')->name('getSentTranscations');
 Route::get('/getreceivedTranscations', 'MobileApi\Wallet\WalletController@getreceivedTranscations')->name('getreceivedTranscations');
+Route::get('/getAllTranscations', 'MobileApi\Wallet\WalletController@getAllTranscations')->name('getAllTranscations');
 
-   
+
 });
 Route::post('/updateverfypassword', 'MobileApi\RiderApp\AndroidApplicationController@updateverfypassword')->name('updateverfypassword');
 Route::post('/verifycodepassword', 'MobileApi\RiderApp\AndroidApplicationController@verifycodepassword')->name('verifycodepassword');

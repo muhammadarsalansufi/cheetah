@@ -27,7 +27,7 @@ class WalletController extends Controller
         $amount = $request->amount;
         $account_num = $request->account_number;
         $sender_name  = auth()->user()->name;
-        $sender_id =  auth()->user()->id;      
+        $sender_id =  auth()->user()->id;
         $receiver_id =   Wallet::where('account_num','=', $account_num)->pluck('user_id')->first();
         $receiver_name  =  User::where('id','=',$receiver_id)->pluck('name')->first();
         $senderbalance =  Wallet::where('user_id','=',$sender_id)->pluck('balance')->first();
@@ -36,7 +36,7 @@ class WalletController extends Controller
         {
             $response = ["status" =>'False','message'=>'InSufficient Balance'];
         }
-        else 
+        else
         {
            if(Wallet::where('account_num','=',$account_num)->exists())
            {
@@ -64,7 +64,7 @@ class WalletController extends Controller
     }
     public function getSentTranscations()
     {
-        $my_id =  auth()->user()->id;  
+        $my_id =  auth()->user()->id;
         $account_number  =  WalletTranscation::where('sender_id','=',$my_id)->get();
         $response = ["status" =>'True','data'=>$account_number ];
         return response($response, 200);
@@ -72,10 +72,18 @@ class WalletController extends Controller
     }
     public function getreceivedTranscations()
     {
-        $my_id =  auth()->user()->id; 
+        $my_id =  auth()->user()->id;
         $account_number  =  WalletTranscation::where('receiver_id','=',$my_id)->get();
         $response = ["status" =>'True','data'=>$account_number ];
         return response($response, 200);
     }
+    public function getAllTranscations()
+    {
+        $my_id =  auth()->user()->id;
+        $account_number  =  WalletTranscation::where('receiver_id','=',$my_id)->orwhere('sender_id','=',$my_id)->get();
+        $response = ["status" =>'True','data'=>$account_number ];
+        return response($response, 200);
+    }
+
 
 }
